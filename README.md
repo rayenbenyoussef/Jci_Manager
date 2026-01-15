@@ -1,30 +1,37 @@
-# Club Management System
+# Jci Management System (Android App)
 
-A comprehensive platform designed to manage club memberships, events, and news updates with a hierarchical role-based access system.
+An Android application developed in **Java** and **XML** to manage club activities, member registrations, and administrative tasks.
+
+> ⚠️ **Project Status:** Under Development. The core logic and UI are currently being implemented based on the UML specifications.
 
 ## 🏗️ System Architecture
 
 ### Use Case Diagram
-This diagram represents the functional requirements of the system and the relationships between various actors and use cases.
+The following diagram defines the functional scope and user interactions for the mobile application.
 
-![Use Case Diagram](./uml%20diagram/use_case.png)
+<img src="./uml%20diagram/use_case.png" width="50%" />
 
-> **Note:** If the image does not appear, ensure the file name in the `uml diagram` folder matches the path above exactly.
+### Logic Overview
+* **Identity Management**: Visitors can use the **Create Account** feature to become Members.
+* **Hierarchical Access**: Admins and Moderators inherit all standard Member permissions.
+* **Security Layer**: All protected actions (like managing members or news) trigger an `«include»` relationship to the **LogIn** and **Authentication** modules.
+* **Feature Extensions**: Event registration allows for optional flows like **Payment** (via external API) and **Attendance Confirmation**.
 
-### Functional Logic
-* **Actor Hierarchy**: The system uses inheritance where **Admin** and **Moderator** inherit capabilities from the **Member** actor.
-* **Access Control**: All sensitive operations (Managing events, news, or members) `«include»` a **LogIn** requirement.
-* **Security**: The **LogIn** process `«includes»` an **Authentication** use case to verify credentials before granting access.
-* **Event Workflow**: Members can register for events, which can optionally `«extend»` into **Payment** via an external Payment System or **Attendance Confirmation**.
+## 🛠️ Tech Stack
+* **Language:** Java (JDK 17+)
+* **UI Layouts:** XML (Android Layouts)
+* **Architecture:** Following MVC/MVVM patterns
+* **Modeling:** UML 2.0 (Stored in `/uml diagram`)
 
-## 👥 Roles defined in the Diagram
-| Role | Description |
-| :--- | :--- |
-| **Visiteur** | Can create an account and consult news/events. |
-| **Member** | Can register for events and manage their personal profile. |
-| **Moderator** | Can verify attendance and manage club news. |
-| **Admin** | Has full authority to manage members and system events. |
+## 📂 Project Structure
+* `/app/src/main/java`: Java source files for Activities, Fragments, and Logic.
+* `/app/src/main/res/layout`: XML files defining the app's user interface.
+* `/uml diagram`: Documentation of the system's design and architecture.
 
-## 📂 Repository Structure
-* `/uml diagram`: Contains all UML design assets (Use Case, and future Class/Sequence diagrams).
-* `/src`: [Placeholder for your source code]
+## 🚀 Roadmap
+- [x] Finalize Use Case Diagram.
+- [ ] Finalize Use Activity Diagram.
+- [ ] Finalize Use sequence Diagram.
+- [ ] Complete Class Diagram (Attributes & Methods).
+- [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
+- [ ] Develop Oracle/mySql integration for Authentication.
