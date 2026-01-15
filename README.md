@@ -9,7 +9,7 @@ An Android application developed in **Java** and **XML** to manage club activiti
 ### Use Case Diagram
 The following diagram defines the functional scope and user interactions for the mobile application.
 
-<img src="./uml%20diagram/use_case.png" width="50%" />
+<img src="./uml%20diagram/use_case.png" width="70%" />
 
 ### Logic Overview
 * **Identity Management**: Visitors can use the **Create Account** feature to become Members.
