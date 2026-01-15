@@ -35,3 +35,6 @@ The following diagram defines the functional scope and user interactions for the
 - [ ] Complete Class Diagram (Attributes & Methods).
 - [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
+
+## ⚖️ License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
