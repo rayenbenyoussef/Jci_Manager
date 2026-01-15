@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/events_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="home page not available yet"
-        android:textSize="48sp" />
+        android:padding="8dp"
+        android:scrollbars="vertical" />
 
 </FrameLayout>
