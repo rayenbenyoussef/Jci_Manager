@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/baseline_newspaper_24"
+        android:title="news" />
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="home" />
+    <item
+        android:id="@+id/events"
+        android:icon="@drawable/outline_ad_24"
+        android:title="events" />
+</menu>
