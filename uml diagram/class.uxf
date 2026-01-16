@@ -1,21 +1,209 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>120</y>
-      <w>210</w>
-      <h>120</h>
+      <x>126</x>
+      <y>27</y>
+      <w>261</w>
+      <h>225</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+    <panel_attributes>Event
 --
--id: Long {composite}
--ClassAttribute: Long_
+-Event id: int
+-Title: String
+-Description: String
+-EventDate: Date
+-Location: String
+-EventType: String
+-MaxParticipants: int
+-DirectorId: int
 --
-#Operation(i: int): int
-/+AbstractOperation()/</panel_attributes>
++Add(newEvent: Event): boolean
++Modify(modEvent: Event): boolean
++Delete(eventId: int): boolean</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>387</y>
+      <w>324</w>
+      <h>279</h>
+    </coordinates>
+    <panel_attributes>Member
+--
+-Id: int
+-Email: String
+-Password: String
+-FirstName: String
+-LastName: String
+-PhoneNumber: int
+-Role: String
+-Status: String
+-JoinDate: Date
+--
++CreateMember(newMem: Member): boolean
++LogIn(pwd: String): boolean
++RegisterForEvent(eventId: int): boolean
++UpdateProfile(Data: Member): boolean
++LogOut(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>288</y>
+      <w>252</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>News
+--
+-NewsId: int
+-AuthorId: int
+-Title: String
+-Description: String
+-PostDate: Date
+--
++Add(newNews: News): boolean
++Modify(modNews: News): boolean
++Delete(eventId: int): boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>27</y>
+      <w>288</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Participation
+--
+-EventDate: Date
+-EventId: int
+-MemberId: String
+-AttendanceStatus: String
+-EventRole: String
+--
++Add(newPart: Participation): boolean
++Modify(modPart: Participation): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>522</y>
+      <w>261</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>Payment
+--
+-MemberId: String
+-PaymentType: String
+-ReferenceId: int
+-Amount: float
+-PaymentDate: Date
+-PaymentMethod: String
+--
++Add(newPay: Payment): boolean
++Modify(modPay: Payment): boolean
++processPayment(); boolean
++generateReceipt(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>180</y>
+      <w>342</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+do &gt;</panel_attributes>
+    <additional_attributes>10.0;230.0;10.0;160.0;330.0;70.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>72</y>
+      <w>216</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+&lt; in</panel_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>405</x>
+      <y>405</y>
+      <w>297</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+r1=Moderator
+manage &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>405</x>
+      <y>540</y>
+      <w>261</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+pay &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>369</x>
+      <y>603</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+m1=1..n
+r1=member
+r2=Admin
+manage &gt;</panel_attributes>
+    <additional_attributes>50.0;20.0;120.0;20.0;120.0;130.0;10.0;130.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>27</x>
+      <y>162</y>
+      <w>135</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+r1=Admin
+r2=event
+manage &gt;</panel_attributes>
+    <additional_attributes>70.0;270.0;50.0;270.0;50.0;20.0;110.0;20.0</additional_attributes>
   </element>
 </diagram>
