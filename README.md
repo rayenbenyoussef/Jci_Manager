@@ -17,6 +17,20 @@ The following diagram defines the functional scope and user interactions for the
 * **Security Layer**: All protected actions (like managing members or news) trigger an `«include»` relationship to the **LogIn** and **Authentication** modules.
 * **Feature Extensions**: Event registration allows for optional flows like **Payment** (via external API) and **Attendance Confirmation**.
 
+## Class Diagram
+The following diagram defines the structural blueprint and data relationships governing the application.
+
+<img src="./uml%20diagram/class.png" width="70%" />
+
+### Logic Overview
+* **Role-Based Permissions:** Uses a `Role` attribute to grant **Admins** and **Moderators** "Manage" access to News and Events.
+* **Participation Bridge:** A `Participation` class links Members to Events to track `AttendanceStatus` and `EventRole` individually.
+* **Centralized Payments:** Uses `PaymentType` and `ReferenceId` to manage both memberships and event fees in one table.
+* **Content Traceability:** Links every News post to a `Member` (Author) for clear accountability.
+* **OOP Standards:** Implements strict encapsulation with private attributes and public methods for data integrity.
+
+Next Step
+
 ## 🛠️ Tech Stack
 * **Language:** Java (JDK 17+)
 * **UI Layouts:** XML (Android Layouts)
@@ -30,7 +44,7 @@ The following diagram defines the functional scope and user interactions for the
 
 ## 🚀 Roadmap
 - [x] Finalize Use Case Diagram.
-- [ ] Complete Class Diagram (Attributes & Methods).
+- [x] Complete Class Diagram (Attributes & Methods).
 - [ ] Finalize sequence Diagram.
 - [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
