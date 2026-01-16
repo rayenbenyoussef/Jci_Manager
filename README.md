@@ -17,6 +17,19 @@ The following diagram defines the functional scope and user interactions for the
 * **Security Layer**: All protected actions (like managing members or news) trigger an `«include»` relationship to the **LogIn** and **Authentication** modules.
 * **Feature Extensions**: Event registration allows for optional flows like **Payment** (via external API) and **Attendance Confirmation**.
 
+## Class Diagram
+The following diagram defines the structural blueprint and data relationships governing the application.
+
+<img src="./uml%20diagram/class.png" width="70%" />
+
+### Logic Overview
+* **Role-Based Access Control (RBAC):** The system utilizes a centralized `Member` class with a `Role` attribute to manage permissions.
+* **Hierarchical Oversight:** Dedicated "manage" associations allow **Admins** and **Moderators** to perform CRUD operations on News, Events, and Member profiles.
+* **Association Class Implementation:** The `Participation` class acts as a bridge between `Member` and `Event`, storing interaction-specific data such as `AttendanceStatus` and `EventRole`.
+* **Unified Payment System:** A streamlined `Payment` class uses `PaymentType` and `ReferenceId` to handle both club registrations and event fees through a single data structure.
+* **Data Accountability:** Every `News` item is linked to a `Member` via an `AuthorId`, ensuring all content is traceable to a specific creator.
+* **Encapsulation:** All entities follow strict Object-Oriented principles, using private attributes and public methods to ensure data integrity.
+
 ## 🛠️ Tech Stack
 * **Language:** Java (JDK 17+)
 * **UI Layouts:** XML (Android Layouts)
