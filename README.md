@@ -30,9 +30,8 @@ The following diagram defines the functional scope and user interactions for the
 
 ## 🚀 Roadmap
 - [x] Finalize Use Case Diagram.
-- [ ] Finalize Activity Diagram.
-- [ ] Finalize sequence Diagram.
 - [ ] Complete Class Diagram (Attributes & Methods).
+- [ ] Finalize sequence Diagram.
 - [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
 
