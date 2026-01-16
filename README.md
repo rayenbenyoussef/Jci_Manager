@@ -23,12 +23,13 @@ The following diagram defines the structural blueprint and data relationships go
 <img src="./uml%20diagram/class.png" width="70%" />
 
 ### Logic Overview
-* **Role-Based Access Control (RBAC):** The system utilizes a centralized `Member` class with a `Role` attribute to manage permissions.
-* **Hierarchical Oversight:** Dedicated "manage" associations allow **Admins** and **Moderators** to perform CRUD operations on News, Events, and Member profiles.
-* **Association Class Implementation:** The `Participation` class acts as a bridge between `Member` and `Event`, storing interaction-specific data such as `AttendanceStatus` and `EventRole`.
-* **Unified Payment System:** A streamlined `Payment` class uses `PaymentType` and `ReferenceId` to handle both club registrations and event fees through a single data structure.
-* **Data Accountability:** Every `News` item is linked to a `Member` via an `AuthorId`, ensuring all content is traceable to a specific creator.
-* **Encapsulation:** All entities follow strict Object-Oriented principles, using private attributes and public methods to ensure data integrity.
+* **Role-Based Permissions:** Uses a `Role` attribute to grant **Admins** and **Moderators** "Manage" access to News and Events.
+* **Participation Bridge:** A `Participation` class links Members to Events to track `AttendanceStatus` and `EventRole` individually.
+* **Centralized Payments:** Uses `PaymentType` and `ReferenceId` to manage both memberships and event fees in one table.
+* **Content Traceability:** Links every News post to a `Member` (Author) for clear accountability.
+* **OOP Standards:** Implements strict encapsulation with private attributes and public methods for data integrity.
+
+Next Step
 
 ## 🛠️ Tech Stack
 * **Language:** Java (JDK 17+)
