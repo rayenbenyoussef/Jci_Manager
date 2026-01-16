@@ -7,7 +7,7 @@
       <x>99</x>
       <y>9</y>
       <w>261</w>
-      <h>225</h>
+      <h>207</h>
     </coordinates>
     <panel_attributes>Event
 --
@@ -18,7 +18,6 @@
 -Location: String
 -EventType: String
 -MaxParticipants: int
--DirectorId: int
 --
 +Add(newEvent: Event): boolean
 +Modify(modEvent: Event): boolean
