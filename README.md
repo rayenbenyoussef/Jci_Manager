@@ -44,7 +44,7 @@ Next Step
 
 ## 🚀 Roadmap
 - [x] Finalize Use Case Diagram.
-- [ ] Complete Class Diagram (Attributes & Methods).
+- [x] Complete Class Diagram (Attributes & Methods).
 - [ ] Finalize sequence Diagram.
 - [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
