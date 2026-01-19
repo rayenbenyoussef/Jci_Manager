@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>99</x>
-      <y>9</y>
+      <x>153</x>
+      <y>36</y>
       <w>261</w>
-      <h>207</h>
+      <h>225</h>
     </coordinates>
     <panel_attributes>Event
 --
@@ -18,6 +18,7 @@
 -Location: String
 -EventType: String
 -MaxParticipants: int
+-paymentAmount: float
 --
 +Add(newEvent: Event): boolean
 +Modify(modEvent: Event): boolean
@@ -27,8 +28,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>63</x>
-      <y>369</y>
+      <x>117</x>
+      <y>396</y>
       <w>324</w>
       <h>279</h>
     </coordinates>
@@ -44,9 +45,9 @@
 -Status: String
 -JoinDate: Date
 --
-+CreateMember(newMem: Member): boolean
-+LogIn(pwd: String): boolean
-+RegisterForEvent(eventId: int): boolean
++isValidData(data: Member): boolean
++AddMember(newMem: Member): boolean
++LogIn(eml: Email, pwd: String): boolean
 +UpdateProfile(Data: Member): boolean
 +LogOut(): void</panel_attributes>
     <additional_attributes/>
@@ -54,8 +55,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>657</x>
-      <y>270</y>
+      <x>711</x>
+      <y>297</y>
       <w>252</w>
       <h>180</h>
     </coordinates>
@@ -76,9 +77,9 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>549</x>
-      <y>9</y>
-      <w>288</w>
+      <x>603</x>
+      <y>36</y>
+      <w>360</w>
       <h>162</h>
     </coordinates>
     <panel_attributes>Participation
@@ -89,17 +90,17 @@
 -AttendanceStatus: String
 -MemberRole: String
 --
-+Add(newPart: Participation): boolean
++AddParticipation(newPart: Participation): boolean
 +Modify(modPart: Participation): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>621</x>
-      <y>504</y>
-      <w>261</w>
-      <h>207</h>
+      <x>675</x>
+      <y>531</y>
+      <w>306</w>
+      <h>225</h>
     </coordinates>
     <panel_attributes>Payment
 --
@@ -111,7 +112,7 @@
 -PaymentDate: Date
 -PaymentMethod: String
 --
-+Add(newPay: Payment): boolean
++AddPayment(newPay: Payment): boolean
 +Modify(modPay: Payment): boolean
 +processPayment(); boolean
 +generateReceipt(): void</panel_attributes>
@@ -120,8 +121,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
-      <y>162</y>
+      <x>378</x>
+      <y>189</y>
       <w>342</w>
       <h>225</h>
     </coordinates>
@@ -134,8 +135,8 @@ do &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>351</x>
-      <y>54</y>
+      <x>405</x>
+      <y>81</y>
       <w>216</w>
       <h>45</h>
     </coordinates>
@@ -148,8 +149,8 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>387</y>
+      <x>432</x>
+      <y>414</y>
       <w>297</w>
       <h>45</h>
     </coordinates>
@@ -163,8 +164,8 @@ manage &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>522</y>
+      <x>432</x>
+      <y>549</y>
       <w>261</w>
       <h>45</h>
     </coordinates>
@@ -177,10 +178,10 @@ pay &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>585</y>
-      <w>198</w>
-      <h>135</h>
+      <x>396</x>
+      <y>630</y>
+      <w>144</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=-
 m2=1
@@ -188,13 +189,13 @@ m1=1..n
 r1=member
 r2=Admin
 manage &gt;</panel_attributes>
-    <additional_attributes>50.0;20.0;120.0;20.0;120.0;130.0;10.0;130.0;10.0;70.0</additional_attributes>
+    <additional_attributes>50.0;20.0;110.0;20.0;110.0;90.0;10.0;90.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>0</x>
-      <y>144</y>
+      <x>54</x>
+      <y>171</y>
       <w>135</w>
       <h>270</h>
     </coordinates>
