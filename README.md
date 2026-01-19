@@ -55,8 +55,6 @@ Shows the steps a member takes to join an event and pay the fee.
 * **Payments:** All money (for joins or events) is handled in one place using a reference ID.
 * **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
 
-Next Step
-
 ## 🛠️ Tech Stack
 * **Language:** Java (JDK 17+)
 * **UI Layouts:** XML (Android Layouts)
