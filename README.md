@@ -29,6 +29,32 @@ The following diagram defines the structural blueprint and data relationships go
 * **Content Traceability:** Links every News post to a `Member` (Author) for clear accountability.
 * **OOP Standards:** Implements strict encapsulation with private attributes and public methods for data integrity.
 
+## 📊 Sequence Diagrams (System Logic)
+These diagrams show how the user and the database talk to each other to get tasks done.
+
+### 1. Create Account
+Shows how a visitor signs up and how the system saves their data in Oracle APEX.
+
+<img src="./uml%20diagram/createAccount_sequance.png" width="70%" />
+
+### 2. Member Login
+Shows how the system checks passwords and what happens when a user types the wrong info.
+
+<img src="./uml%20diagram/logIn_sequance.png" width="70%" />
+
+### 3. Event Registration
+Shows the steps a member takes to join an event and pay the fee.
+
+<img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
+
+---
+
+### 💡 Logic Overview (How it works)
+* **Roles:** The system uses "Roles" (Admin, Moderator, Member) to decide what buttons a user can click.
+* **Tracking:** A "Participation" link tracks who is coming to which event and if they have paid.
+* **Payments:** All money (for joins or events) is handled in one place using a reference ID.
+* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
+
 Next Step
 
 ## 🛠️ Tech Stack
@@ -45,7 +71,7 @@ Next Step
 ## 🚀 Roadmap
 - [x] Finalize Use Case Diagram.
 - [x] Complete Class Diagram (Attributes & Methods).
-- [ ] Finalize sequence Diagram.
+- [x] Finalize sequence Diagram.
 - [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
 
