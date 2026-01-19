@@ -29,7 +29,7 @@ The following diagram defines the structural blueprint and data relationships go
 * **Content Traceability:** Links every News post to a `Member` (Author) for clear accountability.
 * **OOP Standards:** Implements strict encapsulation with private attributes and public methods for data integrity.
 
-## 📊 Sequence Diagrams (System Logic)
+## Sequence Diagrams
 These diagrams show how the user and the database talk to each other to get tasks done.
 
 ### 1. Create Account
