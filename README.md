@@ -35,7 +35,7 @@ These diagrams show how the user and the database talk to each other to get task
 ### 1. Create Account
 Shows how a visitor signs up and how the system saves their data in Oracle APEX.
 
-<img src="./uml%20diagram/createAccount_sequance.png" width="70%" />
+<img src="./uml%20diagram/createAccount_sequence.png" width="70%" />
 
 ### 2. Member Login
 Shows how the system checks passwords and what happens when a user types the wrong info.
