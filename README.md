@@ -40,7 +40,7 @@ Shows how a visitor signs up and how the system saves their data in Oracle APEX.
 ### 2. Member Login
 Shows how the system checks passwords and what happens when a user types the wrong info.
 
-<img src="./uml%20diagram/logIn_sequance.png" width="70%" />
+<img src="./uml%20diagram/logIn_sequence.png" width="70%" />
 
 ### 3. Event Registration
 Shows the steps a member takes to join an event and pay the fee.
