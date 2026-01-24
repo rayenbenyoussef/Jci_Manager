@@ -43,16 +43,15 @@ Shows how the system checks passwords and what happens when a user types the wro
 <img src="./uml%20diagram/logIn_sequence.png" width="70%" />
 
 ### 3. Event Registration
-Shows the steps a member takes to join an event and pay the fee.
+Shows the steps a member takes to just register in an event.
 
 <img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
 
 ---
 
 ### 💡 Logic Overview (How it works)
-* **Roles:** The system uses "Roles" (Admin, Moderator, Member) to decide what buttons a user can click.
-* **Tracking:** A "Participation" link tracks who is coming to which event and if they have paid.
-* **Payments:** All money (for joins or events) is handled in one place using a reference ID.
+* **Roles:** The system uses interactions to decide what buttons a user can click.
+* **Tracking:** A "Participation" link tracks who is interested to which event.
 * **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
 
 ## 🛠️ Tech Stack
