@@ -9,7 +9,7 @@ An Android application developed in **Java** and **XML** to manage club activiti
 ### Use Case Diagram
 The following diagram defines the functional scope and user interactions for the mobile application.
 
-<img src="./uml%20diagram/use_case.png" width="70%" />
+<img src="./uml%20diagram/bin/use_case.png" width="70%" />
 
 ### Logic Overview
 * **Identity Management**: Visitors can use the **Create Account** feature to become Members.
@@ -20,7 +20,7 @@ The following diagram defines the functional scope and user interactions for the
 ## Class Diagram
 The following diagram defines the structural blueprint and data relationships governing the application.
 
-<img src="./uml%20diagram/class.png" width="70%" />
+<img src="./uml%20diagram/bin/class.png" width="70%" />
 
 ### Logic Overview
 * **Role-Based Permissions:** Uses a `Role` attribute to grant **Admins** and **Moderators** "Manage" access to News and Events.
@@ -35,7 +35,7 @@ These diagrams show how the user and the database talk to each other to get task
 ### 1. Create Account
 Shows the steps a visitor takes to sign up for the platform and how the system handles different data validation scenarios.
 
-<img src="./uml%20diagram/createAccount_sequence.png" width="70%" />
+<img src="./uml%20diagram/bin/createAccount_sequence.png" width="70%" />
 
 ### 💡 Logic Overview (How it works)
 * **Initial Submission:** A Visitor submits their details via the SignUp Form, which are then sent to the Controller for verification.
@@ -47,7 +47,7 @@ Shows the steps a visitor takes to sign up for the platform and how the system h
 ### 2. Member Login
 Shows the steps a user takes to access their account and how the system handles successful and failed login attempts.
 
-<img src="./uml%20diagram/logIn_sequence.png" width="70%" />
+<img src="./uml%20diagram/bin/logIn_sequence.png" width="70%" />
 
 ### 💡 Logic Overview (How it works)
 * **Credentials Submission:** The User enters their email and password into the LogIn Form, which forwards the data to the Controller.
@@ -59,7 +59,7 @@ Shows the steps a user takes to access their account and how the system handles 
 ### 3. Recover password
 Shows the steps a user takes to reset their credentials and receive a temporary password via email.
 
-<img src="./uml%20diagram/recoverPassword_sequence.png" width="70%" />
+<img src="./uml%20diagram/bin/recoverPassword_sequence.png" width="70%" />
 
 ---
 
@@ -72,7 +72,7 @@ Shows the steps a user takes to reset their credentials and receive a temporary 
 ### 4. Event Registration & Cancellation
 Shows the steps a user takes to browse events, register for a specific event, and the option to cancel their participation.
 
-<img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
+<img src="./uml%20diagram/bin/eventRegistration_sequence.png" width="70%" />
 
 ---
 
@@ -85,7 +85,20 @@ Shows the steps a user takes to browse events, register for a specific event, an
 ### 5. Confirm Registration
 Shows the final steps a member takes to verify availability and secure their spot in an event.
 
-<img src="./uml%20diagram/confirmRegistration_sequence.png" width="70%" />
+<img src="./uml%20diagram/bin/confirmRegistration_sequence.png" width="70%" />
+
+---
+
+### 💡 Logic Overview (How it works)
+* **Availability Verification:** When a Member clicks confirm, the Controller first checks the DB to ensure there are still open spots.
+* **Capacity Constraint:** If available places are 0, the system triggers a "confirmation failed" response and displays an error message to the user.
+* **Success Path:** If places are available, the Controller proceeds with the confirmation logic.
+* **UI Update:** * Upon a successful confirmation, the AppMain page displays a success message and changes the button text to "confirmed".
+
+### 6. Confirm Registration
+Shows the final steps a member takes to verify availability and secure their spot in an event.
+
+<img src="./uml%20diagram/bin/paymentSystem_sequence.png" width="70%" />
 
 ---
 
