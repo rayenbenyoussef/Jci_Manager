@@ -55,7 +55,7 @@ Shows the steps a user takes to access their account and how the system handles 
 * **Success Path (Data Valid):** The Authentication module confirms success to the Controller.
     ** The LogIn Form displays a success message and triggers a redirect to the main page.
 * **Failure Path (Else):** If validation fails, the Authentication module returns a failure signal.
-    ** The LogIn Form displays a "failed to login" error message to the User.
+*    The LogIn Form displays a "failed to login" error message to the User.
 ### 3. Recover password
 Shows the steps a user takes to reset their credentials and receive a temporary password via email.
 
