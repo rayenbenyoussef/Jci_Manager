@@ -53,8 +53,7 @@ Shows the steps a user takes to reset their credentials and receive a temporary 
 * **Trigger:** The process begins when a User requests a recovery form from the Login Form interface.
 * **Validation:** The Emailing System performs a self-check to verify if the provided email address exists/is valid.
 * **Conditional Logic (Alt):** If the email is valid, the Controller generates a new password, saves it to the DB (Database), and triggers the Emailing System to send the new credentials to the user.
-
-Security: The system ensures the database is only updated after the email identity has been verified by the emailing subsystem.
+* **Security:** The system ensures the database is only updated after the email identity has been verified by the emailing subsystem.
 
 ### 4. Event Registration
 Shows the steps a member takes to just register in an event.
