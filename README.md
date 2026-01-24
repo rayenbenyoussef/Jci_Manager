@@ -55,17 +55,18 @@ Shows the steps a user takes to reset their credentials and receive a temporary 
 * **Conditional Logic (Alt):** If the email is valid, the Controller generates a new password, saves it to the DB (Database), and triggers the Emailing System to send the new credentials to the user.
 * **Security:** The system ensures the database is only updated after the email identity has been verified by the emailing subsystem.
 
-### 4. Event Registration
-Shows the steps a member takes to just register in an event.
+### 4. Event Registration & Cancellation
+Shows the steps a user takes to browse events, register for a specific event, and the option to cancel their participation.
 
 <img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
 
 ---
 
 ### 💡 Logic Overview (How it works)
-* **Roles:** The system uses interactions to decide what buttons a user can click.
-* **Tracking:** A "Participation" link tracks who is interested to which event.
-* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
+* **Navigation:** The User interacts with the AppMain page to view the events list and drill down into specific event details.
+* **Registration Flow:** Clicking "register" triggers a call to the Controller, which persists a "new participation" record in the DB.
+* **Dynamic UI:** Upon successful registration, the AppMain page updates the interface locally by swapping the "register" button for "confirm & cancel" options.
+* **Cancellation Flow:** If the user clicks "cancel," the Controller instructs the DB to delete the participation record, and the UI reverts the buttons back to the original "register" state.
 
 ### 5. Confirm Registration
 Shows the steps a member takes to just register in an event.
