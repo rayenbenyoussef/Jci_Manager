@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.3.4">
   <diagram name="Page-1" id="oTe9xadClV6oJJiWB70e">
-    <mxGraphModel dx="1601" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1281" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -37,7 +37,7 @@
           <mxGeometry height="26" width="220" y="216" as="geometry" />
         </mxCell>
         <mxCell id="_Py07bnOWCSJsEzXWw2o-40" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=light-dark(#FFFFFF,#004C99);" value="Member" vertex="1">
-          <mxGeometry height="408" width="280" x="680" y="30" as="geometry">
+          <mxGeometry height="434" width="280" x="680" y="30" as="geometry">
             <mxRectangle height="30" width="80" x="680" y="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -80,14 +80,17 @@
         <mxCell id="_Py07bnOWCSJsEzXWw2o-111" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ registerInEvent(event_Id: int): boolean" vertex="1">
           <mxGeometry height="26" width="280" y="304" as="geometry" />
         </mxCell>
-        <mxCell id="_Py07bnOWCSJsEzXWw2o-54" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ logIn(email: String, password: String): boolean" vertex="1">
+        <mxCell id="Tpl-zpO1_nHxjH1zKQE6-1" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ cancelRegistration(event_Id: int): boolean" vertex="1">
           <mxGeometry height="26" width="280" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="_Py07bnOWCSJsEzXWw2o-55" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ updateProfile(data: Member): boolean" vertex="1">
+        <mxCell id="_Py07bnOWCSJsEzXWw2o-54" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ logIn(email: String, password: String): boolean" vertex="1">
           <mxGeometry height="26" width="280" y="356" as="geometry" />
         </mxCell>
-        <mxCell id="_Py07bnOWCSJsEzXWw2o-56" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ logOut(): void" vertex="1">
+        <mxCell id="_Py07bnOWCSJsEzXWw2o-55" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ updateProfile(data: Member): boolean" vertex="1">
           <mxGeometry height="26" width="280" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="_Py07bnOWCSJsEzXWw2o-56" parent="_Py07bnOWCSJsEzXWw2o-40" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ logOut(): void" vertex="1">
+          <mxGeometry height="26" width="280" y="408" as="geometry" />
         </mxCell>
         <mxCell id="_Py07bnOWCSJsEzXWw2o-57" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=light-dark(#FFFFFF,#660066);" value="News" vertex="1">
           <mxGeometry height="168" width="220" x="1140" y="782" as="geometry">
