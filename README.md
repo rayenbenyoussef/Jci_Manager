@@ -66,7 +66,7 @@ Shows the steps a member takes to just register in an event.
 * **Tracking:** A "Participation" link tracks who is interested to which event.
 * **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
 
-### 5. confirm Registration
+### 5. Confirm Registration
 Shows the steps a member takes to just register in an event.
 
 <img src="./uml%20diagram/confirmRegistration_sequence.png" width="70%" />
