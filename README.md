@@ -33,9 +33,15 @@ The following diagram defines the structural blueprint and data relationships go
 These diagrams show how the user and the database talk to each other to get tasks done.
 
 ### 1. Create Account
-Shows how a visitor signs up and how the system saves their data in Oracle APEX.
+Shows the steps a visitor takes to sign up for the platform and how the system handles different data validation scenarios.
 
 <img src="./uml%20diagram/createAccount_sequence.png" width="70%" />
+
+* **Initial Submission:** A Visitor submits their details via the SignUp Form, which are then sent to the Controller for verification.
+* **Email Verification:** The system queries the DB to check if the provided email address is already in use.
+* **Scenario A (Data is Valid & Email New):** If the data is valid and the email doesn't exist, the Controller generates a password, saves the new account to the DB, and triggers the Emailing System to send the credentials to the user.
+* **Scenario B (Email Exists):** If the email is already registered, the Controller redirects the flow to the Authentication module to authenticate the existing user.
+* **Scenario C (Invalid Data):** If the data fails validation, the SignUp Form displays an "invalid data" error message to the visitor.
 
 ### 2. Member Login
 Shows how the system checks passwords and what happens when a user types the wrong info.
