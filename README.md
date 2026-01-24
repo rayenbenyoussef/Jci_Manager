@@ -54,7 +54,7 @@ Shows the steps a member takes to just register in an event.
 * **Tracking:** A "Participation" link tracks who is interested to which event.
 * **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
 
-### 3. Event Registration
+### 4. Event Registration
 Shows the steps a member takes to just register in an event.
 
 <img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
@@ -66,7 +66,7 @@ Shows the steps a member takes to just register in an event.
 * **Tracking:** A "Participation" link tracks who is interested to which event.
 * **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
 
-### 3. confirm Registration
+### 5. confirm Registration
 Shows the steps a member takes to just register in an event.
 
 <img src="./uml%20diagram/confirmRegistration_sequence.png" width="70%" />
