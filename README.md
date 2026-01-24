@@ -53,9 +53,9 @@ Shows the steps a user takes to access their account and how the system handles 
 * **Credentials Submission:** The User enters their email and password into the LogIn Form, which forwards the data to the Controller.
 * **Identity Verification:** The Controller sends the credentials to the Authentication module, which performs an internal "validate user" check.
 * **Success Path (Data Valid):** The Authentication module confirms success to the Controller.
-    ** The LogIn Form displays a success message and triggers a redirect to the main page.
+   * The LogIn Form displays a success message and triggers a redirect to the main page.
 * **Failure Path (Else):** If validation fails, the Authentication module returns a failure signal.
-*    The LogIn Form displays a "failed to login" error message to the User.
+   * The LogIn Form displays a "failed to login" error message to the User.
 ### 3. Recover password
 Shows the steps a user takes to reset their credentials and receive a temporary password via email.
 
