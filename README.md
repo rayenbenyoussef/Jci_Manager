@@ -113,9 +113,9 @@ Shows the logic for handling event fees, including free events and external tran
 
 * **Scenario B (Fees Required):**
 
-* The system redirects the user to the External Payment System.
+    * The system redirects the user to the External Payment System.
 
-* The external provider performs a verify payment check.
+    * The external provider performs a verify payment check.
 
 * **Transaction Results:**
 
