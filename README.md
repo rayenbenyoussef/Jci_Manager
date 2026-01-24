@@ -50,10 +50,6 @@ Shows the steps a user takes to reset their credentials and receive a temporary 
 ---
 
 ### 💡 Logic Overview (How it works)
-* **Roles:** The system uses interactions to decide what buttons a user can click.
-* **Tracking:** A "Participation" link tracks who is interested to which event.
-* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
-
 * **Trigger:** The process begins when a User requests a recovery form from the Login Form interface.
 * **Validation:** The Emailing System performs a self-check to verify if the provided email address exists/is valid.
 * **Conditional Logic (Alt):** If the email is valid, the Controller generates a new password, saves it to the DB (Database), and triggers the Emailing System to send the new credentials to the user.
