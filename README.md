@@ -37,6 +37,7 @@ Shows the steps a visitor takes to sign up for the platform and how the system h
 
 <img src="./uml%20diagram/createAccount_sequence.png" width="70%" />
 
+### 💡 Logic Overview (How it works)
 * **Initial Submission:** A Visitor submits their details via the SignUp Form, which are then sent to the Controller for verification.
 * **Email Verification:** The system queries the DB to check if the provided email address is already in use.
 * **Scenario A (Data is Valid & Email New):** If the data is valid and the email doesn't exist, the Controller generates a password, saves the new account to the DB, and triggers the Emailing System to send the credentials to the user.
@@ -44,10 +45,17 @@ Shows the steps a visitor takes to sign up for the platform and how the system h
 * **Scenario C (Invalid Data):** If the data fails validation, the SignUp Form displays an "invalid data" error message to the visitor.
 
 ### 2. Member Login
-Shows how the system checks passwords and what happens when a user types the wrong info.
+Shows the steps a user takes to access their account and how the system handles successful and failed login attempts.
 
 <img src="./uml%20diagram/logIn_sequence.png" width="70%" />
 
+### 💡 Logic Overview (How it works)
+* **Credentials Submission:** The User enters their email and password into the LogIn Form, which forwards the data to the Controller.
+* **Identity Verification:** The Controller sends the credentials to the Authentication module, which performs an internal "validate user" check.
+* **Success Path (Data Valid):** The Authentication module confirms success to the Controller.
+    ** The LogIn Form displays a success message and triggers a redirect to the main page.
+* **Failure Path (Else):** If validation fails, the Authentication module returns a failure signal.
+    ** The LogIn Form displays a "failed to login" error message to the User.
 ### 3. Recover password
 Shows the steps a user takes to reset their credentials and receive a temporary password via email.
 
