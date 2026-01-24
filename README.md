@@ -83,16 +83,17 @@ Shows the steps a user takes to browse events, register for a specific event, an
 * **Cancellation Flow:** If the user clicks "cancel," the Controller instructs the DB to delete the participation record, and the UI reverts the buttons back to the original "register" state.
 
 ### 5. Confirm Registration
-Shows the steps a member takes to just register in an event.
+Shows the final steps a member takes to verify availability and secure their spot in an event.
 
 <img src="./uml%20diagram/confirmRegistration_sequence.png" width="70%" />
 
 ---
 
 ### 💡 Logic Overview (How it works)
-* **Roles:** The system uses interactions to decide what buttons a user can click.
-* **Tracking:** A "Participation" link tracks who is interested to which event.
-* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
+* **Availability Verification:** When a Member clicks confirm, the Controller first checks the DB to ensure there are still open spots.
+* **Capacity Constraint:** If available places are 0, the system triggers a "confirmation failed" response and displays an error message to the user.
+* **Success Path:** If places are available, the Controller proceeds with the confirmation logic.
+* **UI Update:** * Upon a successful confirmation, the AppMain page displays a success message and changes the button text to "confirmed".
 
 ## 🛠️ Tech Stack
 * **Language:** Java (JDK 17+)
