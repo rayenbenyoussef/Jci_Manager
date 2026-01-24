@@ -168,7 +168,7 @@
             <mxPoint x="440" y="174.91999999999996" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ftCLGlP4gjrIeD-Bv_9p-49" connectable="0" parent="ftCLGlP4gjrIeD-Bv_9p-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="payment failedl" vertex="1">
+        <mxCell id="ftCLGlP4gjrIeD-Bv_9p-49" connectable="0" parent="ftCLGlP4gjrIeD-Bv_9p-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="payment failed" vertex="1">
           <mxGeometry relative="1" x="-0.0015" y="1" as="geometry">
             <mxPoint x="39" as="offset" />
           </mxGeometry>
