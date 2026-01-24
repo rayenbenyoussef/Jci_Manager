@@ -42,10 +42,34 @@ Shows how the system checks passwords and what happens when a user types the wro
 
 <img src="./uml%20diagram/logIn_sequence.png" width="70%" />
 
+### 3. Recover password
+Shows the steps a member takes to just register in an event.
+
+<img src="./uml%20diagram/recoverPassword_sequence.png" width="70%" />
+
+---
+
+### 💡 Logic Overview (How it works)
+* **Roles:** The system uses interactions to decide what buttons a user can click.
+* **Tracking:** A "Participation" link tracks who is interested to which event.
+* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
+
 ### 3. Event Registration
 Shows the steps a member takes to just register in an event.
 
 <img src="./uml%20diagram/eventRegistration_sequence.png" width="70%" />
+
+---
+
+### 💡 Logic Overview (How it works)
+* **Roles:** The system uses interactions to decide what buttons a user can click.
+* **Tracking:** A "Participation" link tracks who is interested to which event.
+* **Safety:** Private data is protected, and the system only changes info through official "Check" steps.
+
+### 3. confirm Registration
+Shows the steps a member takes to just register in an event.
+
+<img src="./uml%20diagram/confirmRegistration_sequence.png" width="70%" />
 
 ---
 
