@@ -10,18 +10,15 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link newsFragment#newInstance} factory method to
+ * Use the {@link NewsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class newsFragment extends Fragment {
-
-    public newsFragment() {
+public class NewsFragment extends Fragment {
+    public NewsFragment() {
         // Required empty public constructor
     }
-
-
-    public static newsFragment newInstance() {
-        newsFragment fragment = new newsFragment();
+    public static NewsFragment newInstance() {
+        NewsFragment fragment = new NewsFragment();
         return fragment;
     }
 

@@ -23,30 +23,24 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
-        replaceFrag(new HomeFragment());
+        replaceFrag(new NewsFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             int id=item.getItemId();
-            if(id==R.id.home){
-                replaceFrag(new HomeFragment());
-            } else if (id==R.id.events) {
-                replaceFrag(new eventsFragment());
+            if(id==R.id.events){
+                replaceFrag(new EventsFragment());
+            }else if (id==R.id.profile) {
+                replaceFrag(new ProfileFragment());
             }else if (id==R.id.news) {
-                replaceFrag(new newsFragment());
+                replaceFrag(new NewsFragment());
+            }else if (id==R.id.manage) {
+                replaceFrag(new ManageFragment());
+            }else if (id==R.id.settings) {
+                replaceFrag(new SettingsFragment());
             }
 
             return true;
         } );
-
-
-        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
-
-        toolbar.setNavigationOnClickListener(v -> {
-            drawerLayout.openDrawer(GravityCompat.START);
-        });
     }
 
     private void replaceFrag(Fragment frag){

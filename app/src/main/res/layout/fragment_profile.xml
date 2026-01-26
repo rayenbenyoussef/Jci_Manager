@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsFragment">
+    tools:context=".ProfileFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/news_recycler_view"
+        android:id="@+id/profile_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/news_layout" />
+        tools:listitem="@layout/profile_layout" />
 
 </FrameLayout>

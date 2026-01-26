@@ -4,13 +4,21 @@
     <item
         android:id="@+id/news"
         android:icon="@drawable/baseline_newspaper_24"
-        android:title="news" />
-    <item
-        android:id="@+id/home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="home" />
+        android:title="News" />
     <item
         android:id="@+id/events"
-        android:icon="@drawable/outline_ad_24"
-        android:title="events" />
+        android:icon="@drawable/events_svgrepo_com"
+        android:title="Events" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_round_1342_svgrepo_com"
+        android:title="My profile" />
+    <item
+        android:id="@+id/manage"
+        android:icon="@drawable/manage_svgrepo_com"
+        android:title="Manage" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings_svgrepo_com"
+        android:title="Settings" />
 </menu>
