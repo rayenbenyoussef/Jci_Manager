@@ -22,9 +22,9 @@ public class EventsFragment extends Fragment {
         return fragment;
     }
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
