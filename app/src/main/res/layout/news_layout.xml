@@ -7,23 +7,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:gravity="center"
+        android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/news_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="381dp"
+            android:layout_height="113dp"
             android:src="@drawable/baseline_newspaper_24" />
 
-        <TextView
-            android:id="@+id/news_title"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News Title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/news_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="news description blalalala bla blaaa lbla lbla bla bla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal blabla lbla bla bla lbal bla bla lbal bla " />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/info_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="News Title"
-            android:textSize="18sp" />
+            android:backgroundTint="#1D8DE0"
+            android:text="    More info    " />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
