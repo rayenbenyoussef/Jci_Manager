@@ -41,8 +41,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="93dp"
-            android:layout_height="71dp"
+            android:layout_width="65dp"
+            android:layout_height="56dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="1dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +53,8 @@
             android:id="@+id/textView3"
             android:layout_width="228dp"
             android:layout_height="50dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
             android:text="Data Manager"
             android:textSize="35sp"
             android:textStyle="bold"

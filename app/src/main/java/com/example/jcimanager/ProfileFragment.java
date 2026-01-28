@@ -4,9 +4,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.zip.Inflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +21,7 @@ import android.view.ViewGroup;
 public class ProfileFragment extends Fragment {
 
     public ProfileFragment() {
-        // Required empty public constructor
+        super(R.layout.fragment_profile);
     }
 
     public static ProfileFragment newInstance() {
@@ -25,9 +30,22 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+
+    public void onCreate(View view,Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button btnNext = view.findViewById(R.id.edit_button); // correct
+
+        btnNext.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.frame_lay, new UpdateProfileFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
     }
 
     @Override
@@ -36,4 +54,5 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
+
 }
