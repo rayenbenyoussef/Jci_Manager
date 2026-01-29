@@ -53,6 +53,7 @@ public class EventsFragment extends Fragment {
                 LocalDate.of(2025, 3, 15),
                 "Join us for a fun outdoor gathering with music and food.",
                 "Spring Festival",
+                R.drawable.event1,
                 R.drawable.event1
         ));
 
@@ -65,6 +66,7 @@ public class EventsFragment extends Fragment {
                 LocalDate.of(2025, 4, 2),
                 "A free tech workshop for beginners.",
                 "Android Workshop",
+                R.drawable.event2,
                 R.drawable.event2
         ));
 
@@ -77,6 +79,7 @@ public class EventsFragment extends Fragment {
                 LocalDate.of(2025, 5, 10),
                 "Annual business and networking conference.",
                 "Business Meetup",
+                R.drawable.event3,
                 R.drawable.event3
         ));
 
@@ -89,6 +92,7 @@ public class EventsFragment extends Fragment {
                 LocalDate.of(2025, 6, 1),
                 "Evening yoga and meditation session.",
                 "Yoga Night",
+                R.drawable.event4,
                 R.drawable.event4
         ));
         events.add(new Event(
@@ -100,9 +104,10 @@ public class EventsFragment extends Fragment {
                 LocalDate.of(2025, 7, 20),
                 "Live concert with popular local bands.",
                 "Summer Concert",
+                R.drawable.event4,
                 R.drawable.event4
         ));
-        EventAdapter adapter=new EventAdapter(events);
+        EventAdapter adapter=new EventAdapter(getParentFragmentManager(),events);
         RecyclerView.LayoutManager rvManager=new LinearLayoutManager(getContext());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(rvManager);

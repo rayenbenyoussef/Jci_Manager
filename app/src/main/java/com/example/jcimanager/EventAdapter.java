@@ -1,5 +1,6 @@
 package com.example.jcimanager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +10,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder> {
     ArrayList<Event> events;
-
-    public EventAdapter(ArrayList<Event> events) {
+    FragmentManager frag;
+    public EventAdapter(FragmentManager frag, ArrayList<Event> events) {
         this.events = events;
+        this.frag=frag;
     }
 
     @NonNull
@@ -53,13 +57,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
             );
 
             // Replace fragment
-            if (context instanceof MainActivity) {
-                ((MainActivity) context).getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.frame_lay, fragment)
-                        .addToBackStack(null)
-                        .commit();
-            }
+            frag.beginTransaction()
+                    .replace(R.id.frame_lay, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
+
         });
 
     }

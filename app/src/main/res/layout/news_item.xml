@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingTop="6dp"
         android:paddingBottom="30dp">
 
@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#1D8DE0"
             android:text="    More info    " />
+
     </LinearLayout>
 
 </LinearLayout>

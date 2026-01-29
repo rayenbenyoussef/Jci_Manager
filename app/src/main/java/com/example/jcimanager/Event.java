@@ -14,15 +14,24 @@ public class Event {
     private int max_part;
     private  float paymentAmount;
 
-    public Event(int id, float paymentAmount, int max_part, String locationLink, String locationTitle, LocalDate date, String description, String title, int img) {
+    public Event(int id, float paymentAmount,
+                 int max_part,
+                 String locationLink,
+                 String locationTitle,
+                 LocalDate date,
+                 String description,
+                 String title,
+                 int cover,
+                 int img) {
         this.id = id;
         this.paymentAmount = paymentAmount;
         this.max_part = max_part;
         this.locationLink = locationLink;
         this.locationTitle = locationTitle;
-        this.date = date;
         this.description = description;
+        this.date = date;
         this.title = title;
+        this.cover = cover;
         this.img = img;
     }
 
