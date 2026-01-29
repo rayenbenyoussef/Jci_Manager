@@ -1,8 +1,11 @@
 package com.example.jcimanager;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +34,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         holder.title.setText(news.getTitle());
         holder.description.setText(news.getDescription());
         holder.img.setImageResource(news.getImg());
+
+        holder.infoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(news.getLink()));
+            v.getContext().startActivity(intent);
+        });
+
     }
 
     @Override
@@ -43,12 +53,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         TextView description;
 
         ImageView img;
+        Button infoButton;
 
         public NewsHolder(@NonNull View itemView) {
             super(itemView);
             this.title=itemView.findViewById(R.id.news_title);
             this.description=itemView.findViewById(R.id.news_description);
             this.img=itemView.findViewById(R.id.news_image);
+            this.infoButton=itemView.findViewById(R.id.info_button);
         }
     }
 }
