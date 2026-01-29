@@ -14,7 +14,7 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/event_image"
+            android:id="@+id/devent_image"
             android:layout_width="136dp"
             android:layout_height="144dp"
             android:src="@drawable/events_svgrepo_com" />
@@ -26,14 +26,14 @@
             android:paddingLeft="4dp">
 
             <TextView
-                android:id="@+id/event_title"
+                android:id="@+id/devent_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Event Title"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/event_description"
+                android:id="@+id/devent_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="event description bla bla blaa bla bla bla bla bla bla bla bla bla lbal bla bla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal bla" />

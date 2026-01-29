@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Event {
     private int id;
     private int img;
+    private int cover;
     private String title;
     private String description;
     private LocalDate date;
@@ -47,6 +48,14 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getCover() {
+        return cover;
+    }
+
+    public void setCover(int cover) {
+        this.cover = cover;
     }
 
     public int getImg() {
