@@ -11,6 +11,7 @@
         android:layout_width="400dp"
         android:layout_height="203dp"
         android:paddingRight="10dp"
+        android:scaleType="fitXY"
         android:src="@drawable/baseline_newspaper_24" />
 
     <LinearLayout

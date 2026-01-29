@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -105,8 +106,15 @@ public class DetailedEventFragment extends Fragment {
         TextView loc=view.findViewById(R.id.devent_location);
         loc.setText(eventLoc);
         TextView fees=view.findViewById(R.id.dfees);
-        fees.setText(Float.toString(eventFees));
+        fees.setText(Float.toString(eventFees)+" TND");
         TextView max=view.findViewById(R.id.dmax_part);
         max.setText(Integer.toString(eventMax));
+
+        Button back=view.findViewById(R.id.dvback_button);
+        Button register=view.findViewById(R.id.register_button);
+
+        back.setOnClickListener(v -> {
+            ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(new EventsFragment()));
+        });
     }
 }

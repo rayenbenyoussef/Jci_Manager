@@ -19,24 +19,9 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
-        replaceFrag(new NewsFragment());
+        replaceFrag(new LoginFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            int id=item.getItemId();
-            if(id==R.id.events){
-                replaceFrag(new EventsFragment());
-            }else if (id==R.id.profile) {
-                replaceFrag(new ProfileFragment());
-            }else if (id==R.id.news) {
-                replaceFrag(new NewsFragment());
-            }else if (id==R.id.manage) {
-                replaceFrag(new ManageFragment());
-            }else if (id==R.id.settings) {
-                replaceFrag(new SettingsFragment());
-            }
 
-            return true;
-        } );
     }
 
     public void replaceFrag(Fragment frag){

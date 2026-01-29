@@ -6,15 +6,26 @@ public class News {
     private int img;
     private String description;
 
-    public News(int id, String description, int img, String title) {
+    private String link;
+
+    public News(int id, String description, int img, String title,String link) {
         this.id = id;
         this.description = description;
         this.img = img;
         this.title = title;
+        this.link=link;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public void setId(int id) {

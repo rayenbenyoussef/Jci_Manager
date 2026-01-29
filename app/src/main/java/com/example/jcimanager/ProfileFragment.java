@@ -41,8 +41,9 @@ public class ProfileFragment extends Fragment {
         Button btnNext = view.findViewById(R.id.edit_button); // correct
 
         btnNext.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new UpdateProfileFragment())
+            getParentFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.home_frame_lay,new UpdateProfileFragment())
                     .addToBackStack(null)
                     .commit();
         });

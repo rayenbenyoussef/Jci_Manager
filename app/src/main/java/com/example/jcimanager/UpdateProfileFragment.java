@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 /**
@@ -36,11 +35,11 @@ public class UpdateProfileFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageButton btnBack = view.findViewById(R.id.back_button); // correct
+        ImageButton btnBack = view.findViewById(R.id.dvback_button); // correct
 
         btnBack.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new ProfileFragment())
+                    .replace(R.id.home_frame_lay, new ProfileFragment())
                     .addToBackStack(null)
                     .commit();
         });
@@ -49,7 +48,7 @@ public class UpdateProfileFragment extends Fragment {
 
         btnDone.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new ProfileFragment())
+                    .replace(R.id.home_frame_lay, new ProfileFragment())
                     .addToBackStack(null)
                     .commit();
         });
