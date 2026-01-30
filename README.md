@@ -138,7 +138,7 @@ Shows the logic for handling event fees, including free events and external tran
 - [x] Finalize Use Case Diagram.
 - [x] Complete Class Diagram (Attributes & Methods).
 - [x] Finalize sequence Diagram.
-- [ ] Implement XML Layouts for Sign-Up/Log-In/Home screens.
+- [x] Implement XML Layouts for Sign-Up/Log-In/Home screens.
 - [ ] Develop Oracle/mySql integration for Authentication.
 
 ## ⚖️ License
