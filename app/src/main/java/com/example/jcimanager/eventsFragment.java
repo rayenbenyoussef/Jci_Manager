@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -42,72 +43,11 @@ public class EventsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RecyclerView rv=view.findViewById(R.id.events_recycler_view);
+        TextView appTitle=requireActivity().findViewById(R.id.app_title);
+        appTitle.setText("Events");
 
-        ArrayList<Event> events=new ArrayList<>();
-        events.add(new Event(
-                1,
-                20.0f,
-                50,
-                "https://maps.google.com/?q=Central+Park",
-                "Central Park",
-                LocalDate.of(2025, 3, 15),
-                "Join us for a fun outdoor gathering with music and food.",
-                "Spring Festival",
-                R.drawable.event1,
-                R.drawable.event1
-        ));
 
-        events.add(new Event(
-                2,
-                0.0f,
-                30,
-                "https://maps.google.com/?q=City+Library",
-                "City Library",
-                LocalDate.of(2025, 4, 2),
-                "A free tech workshop for beginners.",
-                "Android Workshop",
-                R.drawable.event2,
-                R.drawable.event2
-        ));
-
-        events.add(new Event(
-                3,
-                10.5f,
-                100,
-                "https://maps.google.com/?q=Convention+Center",
-                "Convention Center",
-                LocalDate.of(2025, 5, 10),
-                "Annual business and networking conference.",
-                "Business Meetup",
-                R.drawable.event3,
-                R.drawable.event3
-        ));
-
-        events.add(new Event(
-                4,
-                5.0f,
-                20,
-                "https://maps.google.com/?q=Community+Hall",
-                "Community Hall",
-                LocalDate.of(2025, 6, 1),
-                "Evening yoga and meditation session.",
-                "Yoga Night",
-                R.drawable.event4,
-                R.drawable.event4
-        ));
-        events.add(new Event(
-                5,
-                50.0f,
-                200,
-                "https://maps.google.com/?q=Stadium",
-                "Community Hall",
-                LocalDate.of(2025, 7, 20),
-                "Live concert with popular local bands.",
-                "Summer Concert",
-                R.drawable.event4,
-                R.drawable.event4
-        ));
-        EventAdapter adapter=new EventAdapter(getParentFragmentManager(),events);
+        EventAdapter adapter=new EventAdapter(getParentFragmentManager(),DataController.getEvents());
         RecyclerView.LayoutManager rvManager=new LinearLayoutManager(getContext());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(rvManager);

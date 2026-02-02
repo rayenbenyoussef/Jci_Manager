@@ -39,7 +39,7 @@ public class UpdateProfileFragment extends Fragment {
 
         btnBack.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.home_frame_lay, new ProfileFragment())
+                    .replace(R.id.frame_lay, new HomePageFragment(new ProfileFragment()))
                     .addToBackStack(null)
                     .commit();
         });
@@ -48,7 +48,7 @@ public class UpdateProfileFragment extends Fragment {
 
         btnDone.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.home_frame_lay, new ProfileFragment())
+                    .replace(R.id.frame_lay, new HomePageFragment(new ProfileFragment()))
                     .addToBackStack(null)
                     .commit();
         });

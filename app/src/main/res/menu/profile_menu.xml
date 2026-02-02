@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/language"
-        android:icon="@drawable/language_svgrepo_com_1_"
-        android:title="Language" />
-    <item
         android:id="@+id/sub"
         android:icon="@drawable/money_check_dollar_svgrepo_com"
         android:title="Subscription" />

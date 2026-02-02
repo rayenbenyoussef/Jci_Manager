@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.zip.Inflater;
@@ -37,13 +38,14 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        TextView appTitle=requireActivity().findViewById(R.id.app_title);
+        appTitle.setText("Profile");
         Button btnNext = view.findViewById(R.id.edit_button); // correct
 
         btnNext.setOnClickListener(v -> {
             getParentFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.home_frame_lay,new UpdateProfileFragment())
+                    .replace(R.id.frame_lay,new UpdateProfileFragment())
                     .addToBackStack(null)
                     .commit();
         });
