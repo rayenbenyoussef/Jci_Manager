@@ -4,15 +4,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.zip.Inflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,8 +37,12 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TextView appTitle=requireActivity().findViewById(R.id.app_title);
         appTitle.setText("Profile");
-        Button btnNext = view.findViewById(R.id.edit_button); // correct
 
+        Button btnNext = view.findViewById(R.id.edit_button);
+        TextView userFullname=view.findViewById(R.id.user_fullname);
+        userFullname.setText(DataController.getProfileInfo().getFirstName()+" "+DataController.getProfileInfo().getLastName());
+        TextView userEmail=view.findViewById(R.id.user_email);
+        userEmail.setText(DataController.getProfileInfo().getEmail());
         btnNext.setOnClickListener(v -> {
             getParentFragmentManager()
                     .beginTransaction()

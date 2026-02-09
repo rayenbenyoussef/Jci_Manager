@@ -127,5 +127,11 @@ public class DataController {
         ));
         return newsList;
     }
+
+    public static Member getProfileInfo(){
+        Member profile1=new Member(1111111,LocalDate.now(),"Active","Member",52925815,"Ben youssef","Rayen","12345678","rayenbenyoussef815@gmail.com");
+
+        return profile1;
+    }
 }
 

@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,8 +36,16 @@ public class UpdateProfileFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        EditText userFullname=view.findViewById(R.id.user_fullname);
+        userFullname.setHint(DataController.getProfileInfo().getFirstName()+" "+DataController.getProfileInfo().getLastName());
 
-        ImageButton btnBack = view.findViewById(R.id.dvback_button); // correct
+        EditText userPhone=view.findViewById(R.id.user_phone);
+        userPhone.setHint(Integer.toString(DataController.getProfileInfo().getPhoneNumber()));
+
+        EditText userPassword=view.findViewById(R.id.user_password);
+        userPassword.setHint(DataController.getProfileInfo().getPassword());
+
+        ImageButton btnBack = view.findViewById(R.id.dvback_button);
 
         btnBack.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
@@ -44,9 +54,10 @@ public class UpdateProfileFragment extends Fragment {
                     .commit();
         });
 
-        ImageButton btnDone = view.findViewById(R.id.done_button); // correct
+        ImageButton btnDone = view.findViewById(R.id.done_button);
 
         btnDone.setOnClickListener(v -> {
+
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.frame_lay, new HomePageFragment(new ProfileFragment()))
                     .addToBackStack(null)

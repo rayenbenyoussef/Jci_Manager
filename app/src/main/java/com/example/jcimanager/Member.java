@@ -1,0 +1,100 @@
+package com.example.jcimanager;
+
+import java.time.LocalDate;
+
+public class Member {
+
+    private int nationalId;
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private int phoneNumber;
+    private String role;
+    private String status;
+    private LocalDate joinDate;
+
+    public Member(int nationalId, LocalDate joinDate, String status, String role, int phoneNumber, String lastName, String firstName, String password, String email) {
+        this.nationalId = nationalId;
+        this.joinDate = joinDate;
+        this.status = status;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public int getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(int nationalId) {
+        this.nationalId = nationalId;
+    }
+
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(LocalDate joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
