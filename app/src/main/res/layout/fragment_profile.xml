@@ -72,6 +72,7 @@
         </LinearLayout>
 
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/profile_navbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:menu="@menu/profile_menu" />

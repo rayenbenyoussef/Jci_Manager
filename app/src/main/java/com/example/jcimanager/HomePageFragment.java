@@ -52,7 +52,10 @@ public class HomePageFragment extends Fragment {
             if(id==R.id.events){
                 selectedFragment=new EventsFragment();
             }else if (id==R.id.profile) {
-                selectedFragment=new ProfileFragment();
+                selectedFragment=ProfileFragment.newInstance(
+                        DataController.getProfileInfo().getFullname(),
+                        DataController.getProfileInfo().getEmail()
+                );
             }else if (id==R.id.news) {
                 selectedFragment=new NewsFragment();
             }else if (id==R.id.manage) {

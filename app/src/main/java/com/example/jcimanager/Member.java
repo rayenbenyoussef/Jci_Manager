@@ -9,12 +9,12 @@ public class Member {
     private String password;
     private String firstName;
     private String lastName;
-    private int phoneNumber;
+    private String phoneNumber;
     private String role;
     private String status;
     private LocalDate joinDate;
 
-    public Member(int nationalId, LocalDate joinDate, String status, String role, int phoneNumber, String lastName, String firstName, String password, String email) {
+    public Member(int nationalId, LocalDate joinDate, String status, String role, String phoneNumber, String lastName, String firstName, String password, String email) {
         this.nationalId = nationalId;
         this.joinDate = joinDate;
         this.status = status;
@@ -28,6 +28,10 @@ public class Member {
 
     public int getNationalId() {
         return nationalId;
+    }
+
+    public String getFullname() {
+        return this.firstName+" "+this.lastName;
     }
 
     public void setNationalId(int nationalId) {
@@ -58,11 +62,11 @@ public class Member {
         this.role = role;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

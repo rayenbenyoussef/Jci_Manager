@@ -10,46 +10,72 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UpdateProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.snackbar.Snackbar;
+
 public class UpdateProfileFragment extends Fragment {
+
+    public static final String ARG_FULLNAME="Fullname";
+    public static final String ARG_PHONEN="Phone number";
+    public static final String ARG_PASSWORD="Password";
+
+    private String fullname;
+    private String phoneNumber;
+    private String password;
+
+
 
     public UpdateProfileFragment() {
         // Required empty public constructor
     }
 
 
-    public static UpdateProfileFragment newInstance() {
+    public static UpdateProfileFragment newInstance(String fullname,String phonenumber,String password) {
         UpdateProfileFragment fragment = new UpdateProfileFragment();
+        Bundle args=new Bundle();
+        args.putString(ARG_FULLNAME,fullname);
+        args.putString(ARG_PHONEN,phonenumber);
+        args.putString(ARG_PASSWORD,password);
+        fragment.setArguments(args);
+
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getArguments() != null) {
+            Bundle args = getArguments();
+
+            this.fullname = args.getString(ARG_FULLNAME);
+            this.phoneNumber = args.getString(ARG_PHONEN);
+            this.password = args.getString(ARG_PASSWORD);
+
+        }
+
         EditText userFullname=view.findViewById(R.id.user_fullname);
-        userFullname.setHint(DataController.getProfileInfo().getFirstName()+" "+DataController.getProfileInfo().getLastName());
+        userFullname.setHint(this.fullname);
 
         EditText userPhone=view.findViewById(R.id.user_phone);
-        userPhone.setHint(Integer.toString(DataController.getProfileInfo().getPhoneNumber()));
+        userPhone.setHint(this.phoneNumber);
 
         EditText userPassword=view.findViewById(R.id.user_password);
-        userPassword.setHint(DataController.getProfileInfo().getPassword());
+        userPassword.setHint(this.password);
+
+        EditText userCPassword=view.findViewById(R.id.confrim_pass);
 
         ImageButton btnBack = view.findViewById(R.id.dvback_button);
 
         btnBack.setOnClickListener(v -> {
+            Fragment updatedProfileFragment= ProfileFragment.newInstance(
+                    DataController.getProfileInfo().getFullname(),
+                    DataController.getProfileInfo().getEmail()
+            );
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new HomePageFragment(new ProfileFragment()))
+                    .replace(R.id.frame_lay, new HomePageFragment(updatedProfileFragment))
                     .addToBackStack(null)
                     .commit();
         });
@@ -57,11 +83,33 @@ public class UpdateProfileFragment extends Fragment {
         ImageButton btnDone = view.findViewById(R.id.done_button);
 
         btnDone.setOnClickListener(v -> {
+            String rawfullname="";
+            String rawphonenumber="";
+            String rawpassword="";
 
-            getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new HomePageFragment(new ProfileFragment()))
-                    .addToBackStack(null)
-                    .commit();
+            if(!userFullname.getText().toString().trim().isEmpty()){
+                rawfullname=userFullname.getText().toString().trim();
+            }
+            if(!userPhone.getText().toString().trim().isEmpty()){
+                rawphonenumber=userPhone.getText().toString().trim();
+            }
+            if(!userPassword.getText().toString().trim().isEmpty() && userCPassword.getText().toString().equals(userPassword.getText().toString())){
+                rawpassword=userPassword.getText().toString().trim();
+            }
+
+            if(DataController.updateProfile(rawfullname,rawphonenumber,rawpassword)){
+                Fragment updatedProfileFragment= ProfileFragment.newInstance(
+                        DataController.getProfileInfo().getFullname(),
+                        DataController.getProfileInfo().getEmail()
+                );
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.frame_lay, new HomePageFragment(updatedProfileFragment))
+                        .addToBackStack(null)
+                        .commit();
+            }else{
+                Snackbar.make(v,"Something went wrong, please check your informations.", Snackbar.LENGTH_LONG)
+                        .show();
+            }
         });
     }
 

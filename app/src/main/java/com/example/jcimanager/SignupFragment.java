@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -61,14 +60,30 @@ public class SignupFragment extends Fragment {
             ((MainActivity) requireActivity()).replaceFrag(new LoginFragment());
         });
         done.setOnClickListener(v -> {
-            if(DataController.isEmpty(fullname)|| DataController.isEmpty(nid)||DataController.isEmpty(email)|| DataController.isEmpty(phonenum)|| DataController.isEmpty(birth) ) {
-                Toast.makeText(getContext(),"please enter the missing data",Toast.LENGTH_LONG).show();
-            }else {
-                Snackbar snackbar = Snackbar.make(view, "password has been sent to your email. you can login now", Snackbar.LENGTH_INDEFINITE);
-                snackbar.setBackgroundTint(Color.YELLOW); // warning color
-                snackbar.setTextColor(Color.BLACK);
-                snackbar.setAction("Dismiss", s -> snackbar.dismiss()); // optional
-                snackbar.show();
+            if(fullname.getText().toString().trim().isEmpty()||
+                    nid.getText().toString().trim().isEmpty()||
+                    email.getText().toString().trim().isEmpty()||
+                    phonenum.getText().toString().trim().isEmpty()||
+                    birth.getText().toString().trim().isEmpty()) {
+
+                Snackbar.make(v,"Please enter the missing informations.", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }else if(DataController.signup(fullname.getText().toString(),
+                    nid.getText().toString(),
+                    email.getText().toString(),
+                    phonenum.getText().toString(),
+                    birth.getText().toString())){
+
+                Snackbar.make(view, "Password has been sent to your email. you can login now", Snackbar.LENGTH_INDEFINITE)
+                        .setBackgroundTint(Color.YELLOW)
+                        .setTextColor(Color.BLACK)
+                        .setAction("Dismiss", s -> {})
+                        .show();
+
+            }else{
+                Snackbar.make(v,"Something went wrong, please check your informations.", Snackbar.LENGTH_LONG)
+                        .show();
             }
         });
 

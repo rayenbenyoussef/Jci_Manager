@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void replaceFrag(Fragment frag){
-        FragmentManager fragManger=getSupportFragmentManager();
-        FragmentTransaction fragTransaction=fragManger.beginTransaction();
-        fragTransaction.replace(R.id.frame_lay,frag);
-        fragTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lay,frag).commit();
     }
 }

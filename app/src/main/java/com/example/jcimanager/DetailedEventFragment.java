@@ -69,17 +69,17 @@ public class DetailedEventFragment extends Fragment {
         if (getArguments() != null) {
             Bundle args = getArguments();
 
-            eventTitle = args.getString(ARG_EVENTTITLE);
-            eventDesc = args.getString(ARG_EVENTDESC);
-            eventCover = args.getInt(ARG_EVENTCOVER);
-            eventLoc = args.getString(ARG_EVENTLOC);
-            eventLocLink = args.getString(ARG_EVENTLOCLINK);
+            this.eventTitle = args.getString(ARG_EVENTTITLE);
+            this.eventDesc = args.getString(ARG_EVENTDESC);
+            this.eventCover = args.getInt(ARG_EVENTCOVER);
+            this.eventLoc = args.getString(ARG_EVENTLOC);
+            this.eventLocLink = args.getString(ARG_EVENTLOCLINK);
 
-            eventImg = args.getInt(ARG_EVENTIMG);
-            eventMax = args.getInt(ARG_EVENTMAX);
-            eventFees = args.getFloat(ARG_EVENTFEES);
+            this.eventImg = args.getInt(ARG_EVENTIMG);
+            this.eventMax = args.getInt(ARG_EVENTMAX);
+            this.eventFees = args.getFloat(ARG_EVENTFEES);
 
-            eventDate = LocalDate.parse(args.getString(ARG_EVENTDATE));
+            this.eventDate = LocalDate.parse(args.getString(ARG_EVENTDATE));
         }
     }
 

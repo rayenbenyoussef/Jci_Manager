@@ -1,20 +1,9 @@
 package com.example.jcimanager;
 
-import android.widget.EditText;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DataController {
-    public static boolean isEmpty(EditText editText){
-        String text = editText.getText().toString().trim();
-        if(text.isEmpty()){
-            editText.setError("cannot be empty!");
-            return true;
-        }
-        return false;
-    }
-
     public static ArrayList<Event> getEvents(){
         ArrayList<Event> events=new ArrayList<>();
         events.add(new Event(
@@ -128,10 +117,36 @@ public class DataController {
         return newsList;
     }
 
+    public static boolean signup(String fullname,String nID,String email,String phoneNumber,String bDate){
+
+        return true;
+    }
+
+    public static boolean login(String email,String password){
+
+        return true;
+    }
+
+    public static void resetPassword(String email){
+
+    }
     public static Member getProfileInfo(){
-        Member profile1=new Member(1111111,LocalDate.now(),"Active","Member",52925815,"Ben youssef","Rayen","12345678","rayenbenyoussef815@gmail.com");
+        Member profile1=new Member(1111111,
+                LocalDate.now(),
+                "Active",
+                "Member",
+                "52925815",
+                "Ben youssef",
+                "Rayen",
+                "12345678",
+                "rayenbenyoussef815@gmail.com");
 
         return profile1;
+    }
+
+    public static boolean updateProfile(String fullname,String phoneNumber,String password){
+
+        return true;
     }
 }
 

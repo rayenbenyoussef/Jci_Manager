@@ -13,15 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoginFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class LoginFragment extends Fragment {
 
     public LoginFragment() {
@@ -61,22 +55,37 @@ public class LoginFragment extends Fragment {
             ((MainActivity) requireActivity()).replaceFrag(new SignupFragment());
         });
         forgotButton.setOnClickListener(v -> {
-            if(!DataController.isEmpty(email)) {
-                Snackbar snackbar = Snackbar.make(view, "A mail has been sent to that email containing the new password", Snackbar.LENGTH_INDEFINITE);
-                snackbar.setBackgroundTint(Color.YELLOW); // warning color
-                snackbar.setTextColor(Color.BLACK);
-                snackbar.setAction("Dismiss", s -> snackbar.dismiss()); // optional
-                snackbar.show();
+            if(!email.getText().toString().trim().isEmpty()) {
+                DataController.resetPassword(email.getText().toString().trim());
+                Snackbar.make(v, "A mail has been sent to you containing the new password.", Snackbar.LENGTH_INDEFINITE)
+                        .setBackgroundTint(Color.YELLOW)
+                        .setTextColor(Color.BLACK)
+                        .setAction("Dismiss", s -> {})
+                        .show();
+
             }else {
-                Toast.makeText(getContext(),"please enter an email",Toast.LENGTH_LONG).show();
+                Snackbar.make(v,"Please enter an email.", Snackbar.LENGTH_LONG)
+                        .show();
             }
         });
         done.setOnClickListener(v -> {
-            if(!(DataController.isEmpty(email)||DataController.isEmpty(password))) {
-                ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(new ProfileFragment()));
-                return;
+            if(email.getText().toString().trim().isEmpty() || password.getText().toString().trim().isEmpty()) {
+                Snackbar.make(v,"Please enter missing informations.", Snackbar.LENGTH_LONG)
+                        .show();
+
             }else {
-                Toast.makeText(getContext(),"please enter missing data",Toast.LENGTH_LONG).show();
+                if(DataController.login(email.getText().toString(),password.getText().toString())){
+                    Member member=DataController.getProfileInfo();
+                    Fragment profileFragment=ProfileFragment.newInstance(
+                            member.getFullname(),
+                            member.getEmail()
+                    );
+                    ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(profileFragment));
+                }else{
+                    Snackbar.make(v,"Email or password is wrong!", Snackbar.LENGTH_LONG)
+                            .show();
+                }
+
             }
         });
 
