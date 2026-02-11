@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -86,6 +87,7 @@ public class ProfileFragment extends Fragment {
 
             }else if (id==R.id.logout) {
                 TokenManager.deleteToken(requireContext());
+                ((MainActivity) requireActivity()).setUserRole("visitor");
                 ((MainActivity) requireActivity())
                         .replaceFrag(new LoginFragment());
             }else{

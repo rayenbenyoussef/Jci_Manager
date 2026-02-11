@@ -148,5 +148,17 @@ public class DataController {
 
         return true;
     }
+
+    public static boolean registerInEvent(String token,int event_id){
+
+        return true;
+    }
+
+    public static boolean confirmRegistration(String token,int event_id){
+
+        return true;
+    }
+
+
 }
 

@@ -70,12 +70,11 @@ public class UpdateProfileFragment extends Fragment {
         ImageButton btnBack = view.findViewById(R.id.dvback_button);
 
         btnBack.setOnClickListener(v -> {
-            Fragment updatedProfileFragment= ProfileFragment.newInstance(
-                    DataController.getProfileInfo().getFullname(),
-                    DataController.getProfileInfo().getEmail()
-            );
+
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.frame_lay, new HomePageFragment(updatedProfileFragment))
+                    .replace(R.id.frame_lay, HomePageFragment.newInstance(
+                            "profile"
+                    ))
                     .addToBackStack(null)
                     .commit();
         });
@@ -98,12 +97,11 @@ public class UpdateProfileFragment extends Fragment {
             }
 
             if(DataController.updateProfile(rawfullname,rawphonenumber,rawpassword)){
-                Fragment updatedProfileFragment= ProfileFragment.newInstance(
-                        DataController.getProfileInfo().getFullname(),
-                        DataController.getProfileInfo().getEmail()
-                );
+
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.frame_lay, new HomePageFragment(updatedProfileFragment))
+                        .replace(R.id.frame_lay, HomePageFragment.newInstance(
+                                "profile"
+                        ))
                         .addToBackStack(null)
                         .commit();
             }else{

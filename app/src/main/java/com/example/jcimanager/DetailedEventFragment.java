@@ -114,7 +114,10 @@ public class DetailedEventFragment extends Fragment {
         Button register=view.findViewById(R.id.register_button);
 
         back.setOnClickListener(v -> {
-            ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(new EventsFragment()));
+            Fragment homePageFragment=HomePageFragment.newInstance(
+                    "events"
+            );
+            ((MainActivity) requireActivity()).replaceFrag(homePageFragment);
         });
     }
 }

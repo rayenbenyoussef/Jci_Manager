@@ -76,11 +76,11 @@ public class LoginFragment extends Fragment {
             }else {
                 if(DataController.login(email.getText().toString(),password.getText().toString())){
                     Member member=DataController.getProfileInfo();
-                    Fragment profileFragment=ProfileFragment.newInstance(
-                            member.getFullname(),
-                            member.getEmail()
-                    );
-                    ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(profileFragment));
+
+                    ((MainActivity) requireActivity()).setUserRole(member.getRole());
+                    ((MainActivity) requireActivity()).replaceFrag(HomePageFragment.newInstance(
+                            "profile"
+                    ));
                 }else{
                     Snackbar.make(v,"Email or password is wrong!", Snackbar.LENGTH_LONG)
                             .show();
@@ -90,7 +90,10 @@ public class LoginFragment extends Fragment {
         });
 
         visitorButton.setOnClickListener(v -> {
-            ((MainActivity) requireActivity()).replaceFrag(new HomePageFragment(new NewsFragment()));
+            Fragment homePageFragment=HomePageFragment.newInstance(
+                    "news"
+            );
+            ((MainActivity) requireActivity()).replaceFrag(homePageFragment);
         });
     }
 

@@ -1,6 +1,8 @@
 package com.example.jcimanager;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,7 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.jcimanager.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static String userRole="visitor";
     ActivityMainBinding binding;
 
     @Override
@@ -25,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void replaceFrag(Fragment frag){
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lay,frag).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_lay,frag)
+                .commit();
+    }
+    public void setUserRole(String role) {
+        userRole = role;
+    }
+
+    public String getUserRole() {
+        return userRole;
     }
 }
