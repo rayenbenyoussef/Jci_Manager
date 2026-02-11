@@ -1,4 +1,4 @@
-# Clubiqo Management System (Android App)
+# Clubs/Organisation Management System (Android App)
 
 An Android application developed in **Java** and **XML** to manage club activities, member registrations, and administrative tasks.
 
