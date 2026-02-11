@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.os.Bundle;
 

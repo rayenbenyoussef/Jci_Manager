@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.graphics.Color;
 import android.os.Bundle;

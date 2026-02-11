@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
 
 public class LoginFragment extends Fragment {
 
@@ -76,7 +79,8 @@ public class LoginFragment extends Fragment {
             }else {
                 if(DataController.login(email.getText().toString(),password.getText().toString())){
                     Member member=DataController.getProfileInfo();
-
+                    TokenManager.saveToken(requireContext(),TokenManager.generateToken(10),
+                            LocalDateTime.now().plusDays(3));
                     ((MainActivity) requireActivity()).setUserRole(member.getRole());
                     ((MainActivity) requireActivity()).replaceFrag(HomePageFragment.newInstance(
                             "profile"

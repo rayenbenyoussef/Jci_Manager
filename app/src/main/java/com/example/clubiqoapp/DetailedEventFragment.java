@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.os.Bundle;
 
@@ -10,10 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +25,8 @@ import java.time.LocalDate;
  * create an instance of this fragment.
  */
 public class DetailedEventFragment extends Fragment {
+
+    private static final String ARG_EVENTID = "event id";
     private static final String ARG_EVENTTITLE = "event title";
     private static final String ARG_EVENTDESC = "event description";
     private static final String ARG_EVENTIMG = "event image";
@@ -32,6 +38,8 @@ public class DetailedEventFragment extends Fragment {
     private static final String ARG_EVENTMAX= "event max participations";
 
     private String eventTitle;
+
+    private String eventId;
     private String eventDesc ;
     private int eventImg;
     private int eventCover;
@@ -46,9 +54,10 @@ public class DetailedEventFragment extends Fragment {
     }
 
     // TODO: Rename and change types and number of parameters
-    public static DetailedEventFragment newInstance(String eventTitle,String eventDesc ,int eventImg, int eventCover, String eventLoc , String eventLocLink, LocalDate eventDate, float eventFees, int eventMax) {
+    public static DetailedEventFragment newInstance(String eventId,String eventTitle,String eventDesc ,int eventImg, int eventCover, String eventLoc , String eventLocLink, LocalDate eventDate, float eventFees, int eventMax) {
         DetailedEventFragment fragment = new DetailedEventFragment();
         Bundle args = new Bundle();;
+        args.putString(ARG_EVENTID,eventId);
         args.putString(ARG_EVENTTITLE, eventTitle);
         args.putString(ARG_EVENTDESC, eventDesc);
         args.putInt(ARG_EVENTIMG , eventImg);
@@ -80,6 +89,7 @@ public class DetailedEventFragment extends Fragment {
             this.eventFees = args.getFloat(ARG_EVENTFEES);
 
             this.eventDate = LocalDate.parse(args.getString(ARG_EVENTDATE));
+            this.eventId=args.getString(ARG_EVENTID);
         }
     }
 
@@ -110,8 +120,67 @@ public class DetailedEventFragment extends Fragment {
         TextView max=view.findViewById(R.id.dmax_part);
         max.setText(Integer.toString(eventMax));
 
-        Button back=view.findViewById(R.id.dvback_button);
+        ImageButton back=view.findViewById(R.id.dvback_button);
         Button register=view.findViewById(R.id.register_button);
+        Button confirm=view.findViewById(R.id.confirm_button);
+        Button cancel=view.findViewById(R.id.cancel_button);
+
+        Participation part=DataController.getParticipationInfo(TokenManager.readToken(requireContext()).getToken(),this.eventId);
+
+        if(part.getAttendanceStatus().equals(""));
+
+        confirm.setVisibility(View.GONE);
+        cancel.setVisibility(View.GONE);
+
+        if(((MainActivity) requireActivity()).getUserRole().equals("visitor")){
+            register.setVisibility(View.GONE);
+
+        }else{
+            register.setVisibility(View.VISIBLE);
+        }
+
+        register.setOnClickListener(v->{
+            register.setVisibility(View.GONE);
+            confirm.setVisibility(View.VISIBLE);
+            cancel.setVisibility(View.VISIBLE);
+
+            if(DataController.registerInEvent(TokenManager.readToken(requireContext()).getToken(),this.eventId)){
+                Snackbar.make(v, "Regsitered succecfully!",Snackbar.LENGTH_LONG).show();
+            }else{
+                Snackbar.make(v, "Something went wrong.",Snackbar.LENGTH_LONG).show();
+            }
+
+
+        });
+
+        confirm.setOnClickListener(v->{
+            register.setVisibility(View.GONE);
+            confirm.setVisibility(View.VISIBLE);
+            confirm.setText("Confirmed");
+            confirm.setActivated(false);
+            cancel.setVisibility(View.GONE);
+
+            if(DataController.confirmRegistration(TokenManager.readToken(requireContext()).getToken(),this.eventId)){
+                Snackbar.make(v, "Confirmed succecfully!",Snackbar.LENGTH_LONG).show();
+            }else{
+                Snackbar.make(v, "Something went wrong.",Snackbar.LENGTH_LONG).show();
+            }
+
+        });
+
+        cancel.setOnClickListener(v->{
+            register.setVisibility(View.VISIBLE);
+            confirm.setVisibility(View.GONE);
+            cancel.setVisibility(View.GONE);
+
+            if(DataController.cancelRegistration(TokenManager.readToken(requireContext()).getToken(),this.eventId)){
+                Snackbar.make(v, "Canceled succecfully!",Snackbar.LENGTH_LONG).show();
+            }else{
+                Snackbar.make(v, "Something went wrong.",Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+
 
         back.setOnClickListener(v -> {
             Fragment homePageFragment=HomePageFragment.newInstance(

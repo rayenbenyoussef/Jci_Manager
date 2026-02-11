@@ -1,14 +1,14 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 public class News {
-    private int id;
+    private String id;
     private String title;
     private int img;
     private String description;
 
     private String link;
 
-    public News(int id, String description, int img, String title,String link) {
+    public News(String id, String description, int img, String title,String link) {
         this.id = id;
         this.description = description;
         this.img = img;
@@ -16,7 +16,7 @@ public class News {
         this.link=link;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -28,7 +28,7 @@ public class News {
         this.link = link;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

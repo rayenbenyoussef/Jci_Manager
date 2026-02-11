@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.os.Bundle;
 
@@ -8,12 +8,9 @@ import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomePageFragment extends Fragment {

@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.jcimanager"
+    namespace = "com.example.clubiqoapp"
     compileSdk {
         version = release(36)
     }

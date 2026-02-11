@@ -1,9 +1,9 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import java.time.LocalDate;
 
 public class Event {
-    private int id;
+    private String id;
     private int img;
     private int cover;
     private String title;
@@ -14,7 +14,7 @@ public class Event {
     private int max_part;
     private  float paymentAmount;
 
-    public Event(int id, float paymentAmount,
+    public Event(String id, float paymentAmount,
                  int max_part,
                  String locationLink,
                  String locationTitle,
@@ -35,11 +35,11 @@ public class Event {
         this.img = img;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

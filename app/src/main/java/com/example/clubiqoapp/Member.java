@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import java.time.LocalDate;
 
@@ -13,6 +13,28 @@ public class Member {
     private String role;
     private String status;
     private LocalDate joinDate;
+    private String token;
+
+    public Member(int nationalId, String token, LocalDate joinDate, String status, String role, String phoneNumber, String lastName, String firstName, String password, String email) {
+        this.nationalId = nationalId;
+        this.token = token;
+        this.joinDate = joinDate;
+        this.status = status;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Member(int nationalId, LocalDate joinDate, String status, String role, String phoneNumber, String lastName, String firstName, String password, String email) {
         this.nationalId = nationalId;

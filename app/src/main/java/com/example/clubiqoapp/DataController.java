@@ -1,13 +1,14 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class DataController {
     public static ArrayList<Event> getEvents(){
         ArrayList<Event> events=new ArrayList<>();
         events.add(new Event(
-                1,
+                "1",
                 20.0f,
                 50,
                 "https://maps.google.com/?q=Central+Park",
@@ -20,7 +21,7 @@ public class DataController {
         ));
 
         events.add(new Event(
-                2,
+                "2",
                 0.0f,
                 30,
                 "https://maps.google.com/?q=City+Library",
@@ -33,7 +34,7 @@ public class DataController {
         ));
 
         events.add(new Event(
-                3,
+                "3",
                 10.5f,
                 100,
                 "https://maps.google.com/?q=Convention+Center",
@@ -46,7 +47,7 @@ public class DataController {
         ));
 
         events.add(new Event(
-                4,
+                "4",
                 5.0f,
                 20,
                 "https://maps.google.com/?q=Community+Hall",
@@ -58,7 +59,7 @@ public class DataController {
                 R.drawable.event4
         ));
         events.add(new Event(
-                5,
+                "5",
                 50.0f,
                 200,
                 "https://maps.google.com/?q=Stadium",
@@ -76,7 +77,7 @@ public class DataController {
         ArrayList<News> newsList = new ArrayList<>();
 
         newsList.add(new News(
-                1,
+                "1",
                 "The city announced new development plans for the downtown area.",
                 R.drawable.news1,
                 "City Development Update",
@@ -84,7 +85,7 @@ public class DataController {
         ));
 
         newsList.add(new News(
-                2,
+                "2",
                 "Android 15 introduces performance improvements and new privacy features.",
                 R.drawable.news2,
                 "Android 15 Released",
@@ -92,7 +93,7 @@ public class DataController {
         ));
 
         newsList.add(new News(
-                3,
+                "3",
                 "Local football team wins the championship after a dramatic final.",
                 R.drawable.news3,
                 "Championship Victory",
@@ -100,7 +101,7 @@ public class DataController {
         ));
 
         newsList.add(new News(
-                4,
+                "4",
                 "Weather experts predict a hotter-than-usual summer this year.",
                 R.drawable.news4,
                 "Summer Heat Alert",
@@ -108,7 +109,7 @@ public class DataController {
         ));
 
         newsList.add(new News(
-                5,
+                "5",
                 "Community clean-up event scheduled for this weekend.",
                 R.drawable.news5,
                 "Community Event",
@@ -149,16 +150,36 @@ public class DataController {
         return true;
     }
 
-    public static boolean registerInEvent(String token,int event_id){
+    public static boolean registerInEvent(String token,String event_id){
 
         return true;
     }
 
-    public static boolean confirmRegistration(String token,int event_id){
+    public static boolean confirmRegistration(String token,String event_id){
 
         return true;
     }
 
+    public static boolean cancelRegistration(String token,String event_id){
 
-}
+        return true;
+    }
+
+    public static Participation getParticipationInfo(String token,String eventId){
+        Participation participation = new Participation(
+                "1",
+                "101",
+                "Present",
+                LocalDateTime.now(),
+                "Organizer"
+        );
+
+        return participation;
+
+    }
+
+
+
+
+    }
 

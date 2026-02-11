@@ -1,15 +1,12 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.jcimanager.databinding.ActivityMainBinding;
+import com.example.clubiqoapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private static String userRole="visitor";
@@ -21,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         EdgeToEdge.enable(this);
         setContentView(binding.getRoot());
-        replaceFrag(new LoginFragment());
-
-
+        if(!TokenManager.isTokenExpired(TokenManager.readToken(this))){
+            replaceFrag(HomePageFragment.newInstance(
+                    "profile"
+            ));
+            setUserRole(DataController.getProfileInfo().getRole());
+        }else{
+            replaceFrag(new LoginFragment());
+        }
     }
 
     public void replaceFrag(Fragment frag){

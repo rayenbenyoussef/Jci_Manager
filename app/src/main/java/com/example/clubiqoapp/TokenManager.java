@@ -1,4 +1,4 @@
-package com.example.jcimanager;
+package com.example.clubiqoapp;
 
 import android.content.Context;
 
@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.security.SecureRandom;
 
 class TokenData {
     private String token;
@@ -26,8 +27,22 @@ class TokenData {
 
 public  class TokenManager {
 
+        private static final String CHARACTERS =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        private static final SecureRandom random = new SecureRandom();
+
     private static final String FILE_NAME = "token.json";
 
+    public static String generateToken(int length) {
+        StringBuilder token = new StringBuilder(length);
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(CHARACTERS.length());
+            token.append(CHARACTERS.charAt(index));
+        }
+
+        return token.toString();
+    }
     public static void saveToken(Context context, String token, LocalDateTime expiry) {
         TokenData data = new TokenData(token, expiry);
         Gson gson = new Gson();
