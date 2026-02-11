@@ -1,4 +1,4 @@
-# Clubs/Organisation Management System (Android App)
+# Club/Organisation Management System (Android App)
 
 An Android application developed in **Java** and **XML** to manage club activities, member registrations, and administrative tasks.
 
