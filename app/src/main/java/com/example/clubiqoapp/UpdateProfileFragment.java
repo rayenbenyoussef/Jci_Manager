@@ -80,21 +80,25 @@ public class UpdateProfileFragment extends Fragment {
         ImageButton btnDone = view.findViewById(R.id.done_button);
 
         btnDone.setOnClickListener(v -> {
-            String rawfullname="";
-            String rawphonenumber="";
-            String rawpassword="";
+            String fullnameStr=userFullname.getText().toString().trim();
+            String phonenumberStr=userPhone.getText().toString().trim();
+            String passwordStr=userPassword.getText().toString();
+            String cpasswordStr=userCPassword.getText().toString();
 
-            if(!userFullname.getText().toString().trim().isEmpty()){
-                rawfullname=userFullname.getText().toString().trim();
+            if(!fullnameStr.isEmpty() && fullnameStr.split(" ").length!=2){
+                userFullname.setError("must contain space");
+                return;
             }
-            if(!userPhone.getText().toString().trim().isEmpty()){
-                rawphonenumber=userPhone.getText().toString().trim();
+            if(!phonenumberStr.isEmpty() && phonenumberStr.length()!=8){
+                userPhone.setError("phone number must have 8 digits");
+                return;
             }
-            if(!userPassword.getText().toString().trim().isEmpty() && userCPassword.getText().toString().equals(userPassword.getText().toString())){
-                rawpassword=userPassword.getText().toString().trim();
+            if(!passwordStr.isEmpty() && !passwordStr.equals(cpasswordStr)){
+                userCPassword.setError("recheck your password");
+                return;
             }
 
-            if(DataController.updateProfile(rawfullname,rawphonenumber,rawpassword)){
+            if(DataController.updateProfile(fullnameStr,phonenumberStr,passwordStr)){
 
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.frame_lay, HomePageFragment.newInstance(

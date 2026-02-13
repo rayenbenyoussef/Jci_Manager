@@ -72,25 +72,29 @@ public class LoginFragment extends Fragment {
             }
         });
         done.setOnClickListener(v -> {
-            if(email.getText().toString().trim().isEmpty() || password.getText().toString().trim().isEmpty()) {
-                Snackbar.make(v,"Please enter missing informations.", Snackbar.LENGTH_LONG)
-                        .show();
-
-            }else {
-                if(DataController.login(email.getText().toString(),password.getText().toString())){
-                    Member member=DataController.getProfileInfo();
-                    TokenManager.saveToken(requireContext(),TokenManager.generateToken(10),
-                            LocalDateTime.now().plusDays(3));
-                    ((MainActivity) requireActivity()).setUserRole(member.getRole());
-                    ((MainActivity) requireActivity()).replaceFrag(HomePageFragment.newInstance(
-                            "profile"
-                    ));
-                }else{
-                    Snackbar.make(v,"Email or password is wrong!", Snackbar.LENGTH_LONG)
-                            .show();
-                }
-
+            String emailStr=email.getText().toString().trim();
+            if(emailStr.isEmpty()) {
+                email.setError("Required");
+                return;
             }
+            String passStr=password.getText().toString();
+            if(passStr.isEmpty()) {
+                password.setError("Required");
+                return;
+            }
+            if(DataController.login(emailStr,passStr)){
+                Member member=DataController.getProfileInfo();
+                TokenManager.saveToken(requireContext(),
+                        TokenManager.generateToken(10),
+                        LocalDateTime.now().plusDays(3));
+                ((MainActivity) requireActivity()).setUserRole(member.getRole());
+                ((MainActivity) requireActivity()).replaceFrag(HomePageFragment.newInstance("profile")
+                );
+            }else{
+                Snackbar.make(v,"Email or password is wrong!", Snackbar.LENGTH_LONG)
+                            .show();
+            }
+
         });
 
         visitorButton.setOnClickListener(v -> {

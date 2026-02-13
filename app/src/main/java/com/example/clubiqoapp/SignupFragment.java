@@ -1,5 +1,6 @@
 package com.example.clubiqoapp;
 
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -15,6 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,21 +65,78 @@ public class SignupFragment extends Fragment {
             ((MainActivity) requireActivity()).replaceFrag(new LoginFragment());
         });
         done.setOnClickListener(v -> {
-            if(fullname.getText().toString().trim().isEmpty()||
-                    nid.getText().toString().trim().isEmpty()||
-                    email.getText().toString().trim().isEmpty()||
-                    phonenum.getText().toString().trim().isEmpty()||
-                    birth.getText().toString().trim().isEmpty()) {
+            String fullNameStr = fullname.getText().toString().trim();
+            String nidStr = nid.getText().toString().trim();
+            String emailStr = email.getText().toString().trim();
+            String phoneStr = phonenum.getText().toString().trim();
+            String birthStr = birth.getText().toString().trim();
 
-                Snackbar.make(v,"Please enter the missing informations.", Snackbar.LENGTH_LONG)
-                        .show();
+            if(fullNameStr.isEmpty()){
+                fullname.setError("Required");
+                return;
+            }
+            if(fullNameStr.split(" ").length!=2){
+                fullname.setError("enter fullname please.");
+                return;
+            }
 
-            }else if(DataController.signup(fullname.getText().toString(),
-                    nid.getText().toString(),
-                    email.getText().toString(),
-                    phonenum.getText().toString(),
-                    birth.getText().toString())){
 
+
+            if(nidStr.isEmpty()){
+                nid.setError("Required");
+                return;
+            }else if(nidStr.length()!=8){
+                nid.setError("National ID must have 8 digits.");
+                return;
+            }
+
+            if(emailStr.isEmpty()){
+                email.setError("Required");
+                return;
+            }
+            int atIndex = emailStr.indexOf("@");
+            if (atIndex <= 0 ||
+                    atIndex != emailStr.lastIndexOf("@") ||
+                    atIndex == emailStr.length() - 1) {
+
+                email.setError("Invalid email");
+                return;
+            }
+            String domainPart = emailStr.substring(atIndex + 1);
+            int dotIndex = domainPart.indexOf(".");
+            if (dotIndex <= 0 || dotIndex == domainPart.length() - 1) {
+                email.setError("Invalid email");
+                return;
+            }
+
+            if(phoneStr.isEmpty()){
+                phonenum.setError("Required");
+                return;
+            } else if (phoneStr.length()!=8) {
+                phonenum.setError("phone number must have 8 digits");
+                return;
+            }
+
+            if(birthStr.isEmpty()){
+                birth.setError("Required");
+                return;
+            }
+            String[] date=birthStr.split("-");
+            if(date.length!=3){
+                birth.setError("Invalid date format");
+                return;
+            }
+            int birthyear=Integer.parseInt(date[0]);
+            int birthmonth=Integer.parseInt(date[1]);
+            int birthday=Integer.parseInt(date[2]);
+            if(birthyear<1909||birthyear>2009||
+                    birthmonth<1||birthmonth>12||
+                    birthday<1||birthday>31){
+                birth.setError("Invalid date format");
+                return;
+            }
+
+            if(DataController.signup(fullNameStr, nidStr, emailStr, phoneStr, LocalDate.of(birthyear,birthmonth,birthday))){
                 Snackbar.make(view, "Password has been sent to your email. you can login now", Snackbar.LENGTH_INDEFINITE)
                         .setBackgroundTint(Color.YELLOW)
                         .setTextColor(Color.BLACK)
@@ -86,7 +148,6 @@ public class SignupFragment extends Fragment {
                         .show();
             }
         });
-
 
     }
 }

@@ -125,18 +125,40 @@ public class DetailedEventFragment extends Fragment {
         Button confirm=view.findViewById(R.id.confirm_button);
         Button cancel=view.findViewById(R.id.cancel_button);
 
-        Participation part=DataController.getParticipationInfo(TokenManager.readToken(requireContext()).getToken(),this.eventId);
 
-        if(part.getAttendanceStatus().equals(""));
-
-        confirm.setVisibility(View.GONE);
-        cancel.setVisibility(View.GONE);
 
         if(((MainActivity) requireActivity()).getUserRole().equals("visitor")){
+            confirm.setVisibility(View.GONE);
             register.setVisibility(View.GONE);
+            cancel.setVisibility(View.GONE);
 
         }else{
-            register.setVisibility(View.VISIBLE);
+            Participation part=DataController.getParticipationInfo(TokenManager.readToken(requireContext()).getToken(),this.eventId);
+            if(part==null){
+                confirm.setVisibility(View.GONE);
+                register.setVisibility(View.VISIBLE);
+                cancel.setVisibility(View.GONE);
+            }else if(part.getAttendanceStatus().equals("registered")){
+                confirm.setVisibility(View.VISIBLE);
+                register.setVisibility(View.GONE);
+                cancel.setVisibility(View.VISIBLE);
+            }else if(part.getAttendanceStatus().equals("confirmed")){
+                confirm.setVisibility(View.VISIBLE);
+                register.setVisibility(View.GONE);
+                confirm.setText("Confirmed");
+                confirm.setEnabled(false);
+                cancel.setVisibility(View.GONE);
+            }else if(part.getAttendanceStatus().equals("present")){
+                confirm.setVisibility(View.VISIBLE);
+                register.setVisibility(View.GONE);
+                cancel.setVisibility(View.GONE);
+                confirm.setText("Present");
+                confirm.setEnabled(false);
+            }else{
+                confirm.setVisibility(View.GONE);
+                register.setVisibility(View.GONE);
+                cancel.setVisibility(View.GONE);
+            }
         }
 
         register.setOnClickListener(v->{
@@ -157,7 +179,7 @@ public class DetailedEventFragment extends Fragment {
             register.setVisibility(View.GONE);
             confirm.setVisibility(View.VISIBLE);
             confirm.setText("Confirmed");
-            confirm.setActivated(false);
+            confirm.setEnabled(false);
             cancel.setVisibility(View.GONE);
 
             if(DataController.confirmRegistration(TokenManager.readToken(requireContext()).getToken(),this.eventId)){

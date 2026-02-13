@@ -118,7 +118,7 @@ public class DataController {
         return newsList;
     }
 
-    public static boolean signup(String fullname,String nID,String email,String phoneNumber,String bDate){
+    public static boolean signup(String fullname,String nID,String email,String phoneNumber,LocalDate bDate){
 
         return true;
     }
@@ -135,7 +135,7 @@ public class DataController {
         Member profile1=new Member(1111111,
                 LocalDate.now(),
                 "Active",
-                "Member",
+                "Admin",
                 "52925815",
                 "Ben youssef",
                 "Rayen",
@@ -169,7 +169,7 @@ public class DataController {
         Participation participation = new Participation(
                 "1",
                 "101",
-                "Present",
+                "present",
                 LocalDateTime.now(),
                 "Organizer"
         );
@@ -178,8 +178,5 @@ public class DataController {
 
     }
 
-
-
-
-    }
+}
 
