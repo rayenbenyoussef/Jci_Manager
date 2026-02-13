@@ -84,9 +84,7 @@ public class LoginFragment extends Fragment {
             }
             if(DataController.login(emailStr,passStr)){
                 Member member=DataController.getProfileInfo();
-                TokenManager.saveToken(requireContext(),
-                        TokenManager.generateToken(10),
-                        LocalDateTime.now().plusDays(3));
+                TokenManager.generateToken(requireContext());
                 ((MainActivity) requireActivity()).setUserRole(member.getRole());
                 ((MainActivity) requireActivity()).replaceFrag(HomePageFragment.newInstance("profile")
                 );

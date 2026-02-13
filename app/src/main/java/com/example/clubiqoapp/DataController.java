@@ -128,6 +128,10 @@ public class DataController {
         return true;
     }
 
+    public static void uploadToken(String token,String expiryDate){
+
+    }
+
     public static void resetPassword(String email){
 
     }

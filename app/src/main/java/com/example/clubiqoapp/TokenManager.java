@@ -34,26 +34,28 @@ public  class TokenManager {
     private static final String FILE_NAME = "token.json";
 
     public static String generateToken(int length) {
-        StringBuilder token = new StringBuilder(length);
 
-        for (int i = 0; i < length; i++) {
+    }
+    public static void generateToken(Context context) {
+        StringBuilder tokenb = new StringBuilder(50);
+
+        for (int i = 0; i < 50; i++) {
             int index = random.nextInt(CHARACTERS.length());
-            token.append(CHARACTERS.charAt(index));
+            tokenb.append(CHARACTERS.charAt(index));
         }
 
-        return token.toString();
-    }
-    public static void saveToken(Context context, String token, LocalDateTime expiry) {
-        TokenData data = new TokenData(token, expiry);
+        String token=tokenb.toString();
+        TokenData data = new TokenData(token, LocalDateTime.now().plusDays(3));
         Gson gson = new Gson();
 
         try (FileOutputStream fos = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
             String json = gson.toJson(data);
             fos.write(json.getBytes());
-            System.out.println("Token saved internally!");
+            DataController.uploadToken(data.getToken(), data.getExpiryDate());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static TokenData readToken(Context context) {

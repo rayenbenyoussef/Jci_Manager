@@ -38,7 +38,7 @@
                 android:id="@+id/devent_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="event description bla bla blaa bla bla bla bla bla bla bla bla bla lbal bla bla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal bla" />
+                android:text="event description bla bla blaa bla bla bla bla bla bla bla bla bla lbal bla bla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla bla bla lbal blabla bla  blablabla" />
         </LinearLayout>
 
     </LinearLayout>

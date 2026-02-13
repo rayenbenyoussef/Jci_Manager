@@ -86,7 +86,7 @@ public class UpdateProfileFragment extends Fragment {
             String cpasswordStr=userCPassword.getText().toString();
 
             if(!fullnameStr.isEmpty() && fullnameStr.split(" ").length!=2){
-                userFullname.setError("must contain space");
+                userFullname.setError("enter fullname please.");
                 return;
             }
             if(!phonenumberStr.isEmpty() && phonenumberStr.length()!=8){
